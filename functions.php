@@ -12,3 +12,10 @@ function my_theme_enqueue_front_page_styles() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_front_page_styles' );
+
+// Calling in my style.css
+function enqueue_theme_styles() {
+    wp_enqueue_style('nl-portfolio-theme', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'enqueue_theme_styles');
+
