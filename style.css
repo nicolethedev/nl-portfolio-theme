@@ -22,6 +22,10 @@ html {
   margin: 0 1.25rem;
 }
 
+.custom-nav a:hover {
+  text-decoration: underline;
+}
+
 .skill-cards {
   margin: 0 1.25rem;
 }
