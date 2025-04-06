@@ -160,6 +160,11 @@
 					"fontSize": "var(--wp--preset--font-size--button)"
 				}
 			},
+			"core/buttons": {
+				"border": {
+					"radius": "25px"
+				}
+			},
 			"core/heading": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--hammersmith-one)"
