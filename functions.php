@@ -1,5 +1,18 @@
 <?php
 
+// Enqueue the Normalize CSS file
+function enqueue_normalize_css() {
+    wp_enqueue_style(
+        'normalize',
+        get_template_directory_uri() . '/styles/normalize.css', 
+        array(),
+        null, 
+        'all' 
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_normalize_css');
+
+
 // Enqueue a custom stylesheet for the front page only
 function my_theme_enqueue_front_page_styles() {
     if ( is_front_page() ) {
