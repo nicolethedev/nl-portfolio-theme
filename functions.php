@@ -1,5 +1,7 @@
 <?php
 
+require_once get_template_directory() . '/inc/projects-tools.php';
+
 // Enqueue the Normalize CSS file
 function enqueue_normalize_css() {
     wp_enqueue_style(
