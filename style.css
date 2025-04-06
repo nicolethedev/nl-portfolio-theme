@@ -29,3 +29,7 @@ html {
 .skill-cards {
   margin: 0 1.25rem;
 }
+
+a .backbutton {
+  vertical-align: middle;
+}
