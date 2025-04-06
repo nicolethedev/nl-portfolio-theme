@@ -1,7 +1,7 @@
 <!-- wp:template-part {"slug":"header"} /-->
 
-<!-- wp:group {"metadata":{"name":"hero"},"style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"0"},"dimensions":{"minHeight":"60vh"}},"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"bottom"}} -->
-<div class="wp-block-group" style="min-height:60vh;padding-top:0;padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><!-- wp:heading {"level":1,"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}},"typography":{"lineHeight":"1.2","fontSize":"3.25rem"}}} -->
+<!-- wp:group {"metadata":{"name":"hero"},"style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"0"},"dimensions":{"minHeight":"90vh"}},"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group" style="min-height:90vh;padding-top:0;padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><!-- wp:heading {"level":1,"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}},"typography":{"lineHeight":"1.2","fontSize":"3.25rem"}}} -->
 <h1 class="wp-block-heading" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;font-size:3.25rem;line-height:1.2">Hey there, I'm Nicole<br>I am a web designer + developer</h1>
 <!-- /wp:heading -->
 
@@ -11,9 +11,13 @@
 
 <!-- wp:buttons {"style":{"spacing":{"blockGap":{"top":"0"},"padding":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
 <div class="wp-block-buttons" style="padding-top:var(--wp--preset--spacing--40)"><!-- wp:button {"textAlign":"center","className":"is-style-fill","style":{"border":{"width":"5px","color":"#643030","radius":"25px"},"shadow":"-4px 4px 0px 0 #643030"},"fontSize":"button"} -->
-<div class="wp-block-button has-custom-font-size is-style-fill has-button-font-size"><a class="wp-block-button__link has-border-color has-text-align-center wp-element-button" style="border-color:#643030;border-width:5px;border-radius:25px;box-shadow:-4px 4px 0px 0 #643030">View my Work</a></div>
+<div class="wp-block-button has-custom-font-size is-style-fill has-button-font-size"><a class="wp-block-button__link has-border-color has-text-align-center wp-element-button" href="#Projects" style="border-color:#643030;border-width:5px;border-radius:25px;box-shadow:-4px 4px 0px 0 #643030">View my Work</a></div>
 <!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:spacer {"height":"0px","style":{"layout":{"flexSize":"100px","selfStretch":"fixed"}}} -->
+<div style="height:0px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
 <!-- /wp:group -->
 
 <!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
@@ -24,8 +28,26 @@
 <h2 class="wp-block-heading has-h-2-font-size" id="Skills" style="padding-left:var(--wp--preset--spacing--50)">Skills</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"About Section"},"layout":{"type":"default"}} -->
+<section id="About" class="wp-block-group"><!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
 <h2 class="wp-block-heading has-h-2-font-size" id="About" style="padding-left:var(--wp--preset--spacing--50)">About</h2>
 <!-- /wp:heading -->
+
+<!-- wp:media-text {"mediaId":73,"mediaLink":"http://localhost/portfolio/nicole-portrait/","mediaType":"image","mediaWidth":27,"imageFill":false,"style":{"spacing":{"padding":{"right":"var:preset|spacing|70","left":"var:preset|spacing|70"},"margin":{"right":"var:preset|spacing|80","left":"var:preset|spacing|80"}}}} -->
+<div class="wp-block-media-text is-stacked-on-mobile" style="margin-right:var(--wp--preset--spacing--80);margin-left:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70);grid-template-columns:27% auto"><figure class="wp-block-media-text__media"><img src="http://localhost/portfolio/wp-content/uploads/2025/04/nicole-portrait-819x1024.png" alt="" class="wp-image-73 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Content…"} -->
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id dolor sed justo rutrum sollicitudin. Cras ac euismod leo, in aliquet mi. Proin ullamcorper eleifend lectus, ut mollis turpis pretium sit amet. Nullam vel maximus quam, a lacinia nibh. Ut tincidunt luctus diam eleifend rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis risus erat, in luctus nulla faucibus eget. Nam consequat tellus nec enim accumsan, eget ultricies magna tincidunt. Pellentesque velit felis, egestas vel mi ut, suscipit placerat urna. Integer volutpat quam interdum ex mattis, in feugiat nulla pretium.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"placeholder":"Content…"} -->
+<p>Nulla sed ante quis arcu efficitur aliquet in a dolor. Nullam quis pharetra ante, ac ornare nibh. Nam lacinia enim at elementum suscipit. Donec lobortis in urna vel dapibus. Aliquam ac metus vitae nibh egestas sollicitudin. Nam eu enim elit. Nam efficitur tellus ac efficitur pharetra. Donec varius, lectus a fermentum porttitor, diam odio sollicitudin neque, id interdum purus augue a ex. Curabitur non sapien ornare, facilisis mauris nec, malesuada nunc. Nullam at lectus faucibus nisl iaculis ultrices vitae id urna. Proin fringilla tincidunt dictum.</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:media-text -->
+
+<!-- wp:buttons {"fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons has-custom-font-size has-button-font-size"><!-- wp:button {"textAlign":"center","className":"is-style-fill","style":{"border":{"width":"5px","color":"#643030","radius":"25px"},"shadow":"-4px 4px 0px 0 #643030"},"fontSize":"button"} -->
+<div class="wp-block-button has-custom-font-size is-style-fill has-button-font-size"><a class="wp-block-button__link has-border-color has-text-align-center wp-element-button" style="border-color:#643030;border-width:5px;border-radius:25px;box-shadow:-4px 4px 0px 0 #643030">Learn More</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></section>
+<!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer"} /-->
