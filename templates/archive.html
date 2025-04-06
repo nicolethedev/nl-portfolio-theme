@@ -1,7 +1,7 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
 <!-- wp:group {"metadata":{"categories":["posts"],"patternName":"core/query-offset-posts","name":"Offset"},"style":{"spacing":{"padding":{"top":"30px","right":"30px","bottom":"30px","left":"30px"}}},"layout":{"inherit":false}} -->
-<div class="wp-block-group" style="padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:columns -->
+<div id="all-projects" class="wp-block-group" style="padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"width":"50%"} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:query {"queryId":10,"query":{"perPage":2,"pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
 <div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"default"}} -->
@@ -11,8 +11,10 @@
 
 <!-- wp:post-content /-->
 
-<!-- wp:spacer {"height":"200px"} -->
-<div style="height:200px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- wp:post-terms {"term":"project_category","className":"badge","style":{"border":{"width":"0px","style":"none"}}} /-->
+
+<!-- wp:spacer {"height":"102px"} -->
+<div style="height:102px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 <!-- /wp:post-template --></div>
 <!-- /wp:query --></div>
