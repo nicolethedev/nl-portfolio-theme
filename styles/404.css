@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.falling-logo {
+  position: absolute;
+  top: -62em;
+  left: 50%;
+  transform: translateX(-50%) scale(0.5);
+  animation: fallAnimation 4s ease-in-out forwards;
+}
+
+@keyframes fallAnimation {
+  0% {
+    top: -62em;
+  }
+  80% {
+    top: calc(100vh - 120px);
+  }
+  100% {
+    top: calc(100vh - 100px);
+  }
+}
+
+@keyframes fallAnimationMobile {
+  0% {
+    top: -62em;
+  }
+  80% {
+    top: calc(100vh - 80px);
+  }
+  100% {
+    top: calc(100vh - 60px);
+  }
+}
+
+@media (max-width: 35.5em) {
+  .falling-logo {
+    transform: translateX(-50%) scale(0.3);
+    animation: fallAnimationMobile 3s ease-in-out forwards;
+  }
+}

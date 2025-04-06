@@ -29,3 +29,16 @@ function enqueue_theme_styles() {
     wp_enqueue_style('nl-portfolio-theme', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'enqueue_theme_styles');
+
+function enqueue_custom_404_assets() {
+    if ( is_404() ) {
+        wp_enqueue_style( 'custom-404-style', get_template_directory_uri() . '/styles/404.css', array(), '1.0' );
+        wp_enqueue_script( 'custom-404-script', get_template_directory_uri() . '/assets/js/404.js', array(), '1.0', true );
+        wp_localize_script( 'custom-404-script', 'themeData', array(
+            'themeDirectory' => get_template_directory_uri()
+        ));
+    }
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_404_assets' );
+
+
