@@ -81,6 +81,8 @@ function nl_register_project_categories() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
+        'show_in_rest'      => true,
+        'rest_base'         => 'project_category',
         'rewrite'           => array( 'slug' => 'project-category' ),
     );
     register_taxonomy( 'project_category', array( 'project' ), $args );
@@ -112,6 +114,8 @@ function nl_register_project_tools() {
         'show_admin_column'     => true,
         'update_count_callback' => '_update_post_term_count',
         'query_var'             => true,
+        'show_in_rest'          => true,
+        'rest_base'             => 'project_tool',
         'rewrite'               => array( 'slug' => 'project-tool' ),
     );
     register_taxonomy( 'project_tool', 'project', $args );
