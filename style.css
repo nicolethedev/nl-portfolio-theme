@@ -14,6 +14,10 @@ Text Domain: nl-portfolio-theme
 Tags: 
 */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .custom-nav {
   margin: 0 1.25rem;
 }

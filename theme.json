@@ -45,6 +45,15 @@
 			"contentSize": "620px",
 			"wideSize": "1000px"
 		},
+		"shadow": {
+			"presets": [
+				{
+					"name": "Shadow 1",
+					"shadow": "-3px 7px 2px 0 #ffffff63",
+					"slug": "shadow-1"
+				}
+			]
+		},
 		"spacing": {
 			"units": [
 				"%",
@@ -197,7 +206,7 @@
 			"h1": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--hammersmith-one)",
-					"fontSize": "var(--wp--preset--font-size--h1)",
+					"fontSize": "3.25rem",
 					"fontStyle": "normal",
 					"fontWeight": "400"
 				}
