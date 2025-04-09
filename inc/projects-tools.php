@@ -246,7 +246,7 @@ function nl_render_project_description_box( $post ) {
         'media_buttons' => false,
     ) );
     ?>
-    <p><?php _e( 'If you wish to have different sections (About, Challenges, Outcome, Reflection, etc), consider using ACF to create tabbed fields.', 'nl-portfolio-theme' ); ?></p>
+
     <?php
 }
 
