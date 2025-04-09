@@ -33,3 +33,22 @@ html {
 a .backbutton {
   vertical-align: middle;
 }
+
+footer .is-style-default {
+  margin: 0 1.25rem;
+  opacity: 50%;
+}
+
+footer .copyright-privacy,
+.headers {
+  opacity: 70%;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #deaed4;
+}

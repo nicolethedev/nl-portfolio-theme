@@ -43,6 +43,7 @@ function enqueue_custom_404_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_custom_404_assets' );
 
+
 // Loading 'projects' post type in the archive page
 function load_projects_in_archive( $query ) {
 
