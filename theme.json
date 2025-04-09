@@ -19,7 +19,7 @@
 					"name": "Light Apricot",
 					"slug": "light-apricot"
 				},
-                {
+				{
 					"color": "rgb(252, 242, 229, 0.4)",
 					"name": "Faded Light Apricot",
 					"slug": "faded-light-apricot"
@@ -38,8 +38,8 @@
 		"shadow": {
 			"presets": [
 				{
-					"name": "Shadow 1",
-					"shadow": "-3px 7px 2px 0 #ffffff63",
+					"name": "Button Background",
+					"shadow": "-4px 4px 0px 0 #36416a",
 					"slug": "shadow-1"
 				}
 			]
