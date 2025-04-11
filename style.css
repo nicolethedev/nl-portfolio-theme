@@ -52,3 +52,15 @@ footer a:hover {
   text-decoration: underline;
   color: #deaed4;
 }
+
+/* single project page */
+
+.backbutton {
+  text-decoration: none;
+  vertical-align: middle;
+  padding-left: 3rem;
+}
+
+.project-details {
+  margin: 1rem 3rem;
+}

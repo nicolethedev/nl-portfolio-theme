@@ -1,14 +1,13 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
-<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group"><!-- wp:html -->
+<!-- wp:group {"className":"project-title-row","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group project-title-row"><!-- wp:html -->
 <a href="javascript:history.back()" class="backbutton">
   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
     <polyline points="11 7 6 12 11 17"></polyline>
     <polyline points="18 7 13 12 18 17"></polyline>
-  </svg> Back
-</a>
+  </svg></a>
 <!-- /wp:html -->
 
 <!-- wp:post-title {"style":{"spacing":{"padding":{"right":"0","left":"0"},"margin":{"right":"0","left":"0"}}},"fontSize":"h1"} /--></div>
@@ -16,8 +15,8 @@
 
 <!-- wp:post-featured-image {"aspectRatio":"16/9","style":{"spacing":{"margin":{"right":"var:preset|spacing|70","left":"var:preset|spacing|70"}},"border":{"radius":"25px"}}} /-->
 
-<!-- wp:columns {"verticalAlignment":"center","style":{"border":{"radius":"25px"},"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}}},"backgroundColor":"faded-light-apricot","textColor":"deep-indigo"} -->
-<div class="wp-block-columns are-vertically-aligned-center has-deep-indigo-color has-faded-light-apricot-background-color has-text-color has-background has-link-color" style="border-radius:25px"><!-- wp:column {"verticalAlignment":"center"} -->
+<!-- wp:columns {"className":"project-details","style":{"border":{"radius":"25px"},"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}}},"backgroundColor":"faded-light-apricot","textColor":"deep-indigo"} -->
+<div class="wp-block-columns project-details has-deep-indigo-color has-faded-light-apricot-background-color has-text-color has-background has-link-color" style="border-radius:25px"><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"fontSize":"paragraph"} -->
 <p class="has-paragraph-font-size"><strong>Client / Purpose: </strong></p>
@@ -41,7 +40,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"verticalAlignment":"center"} -->
+<!-- wp:column {"verticalAlignment":"center","layout":{"type":"constrained"}} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"left"}} -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"faded-light-apricot","textColor":"deep-indigo","className":"is-style-outline","style":{"border":{"width":"3px","radius":"15px"},"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}}},"fontSize":"button"} -->
 <div class="wp-block-button has-custom-font-size is-style-outline has-button-font-size"><a class="wp-block-button__link has-deep-indigo-color has-faded-light-apricot-background-color has-text-color has-background has-link-color wp-element-button" style="border-width:3px;border-radius:15px">Github Repo</a></div>
@@ -53,5 +52,27 @@
 <!-- /wp:buttons --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
+
+<!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
+<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group"><!-- wp:heading {"level":3,"fontSize":"h3"} -->
+<h3 class="wp-block-heading has-h-3-font-size">About the project:</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"h3"} -->
+<h3 class="wp-block-heading has-h-3-font-size">Tools used:</h3>
+<!-- /wp:heading -->
+
+<!-- wp:post-terms {"term":"project_tool"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:image {"aspectRatio":"1","scale":"cover","align":"left","className":"is-style-rounded"} -->
+<figure class="wp-block-image alignleft is-style-rounded"><img alt="" style="aspect-ratio:1;object-fit:cover"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","area":"footer"} /-->
