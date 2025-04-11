@@ -15,6 +15,11 @@
 					"slug": "dusty-mauve"
 				},
 				{
+					"color": "#F5E6F2",
+					"name": "Light Dusty Mauve",
+					"slug": "light-dusty-mauve"
+				},
+				{
 					"color": "rgb(252, 242, 229)",
 					"name": "Light Apricot",
 					"slug": "light-apricot"
@@ -28,6 +33,11 @@
 					"color": "#36416A",
 					"name": "Deep Indigo",
 					"slug": "deep-indigo"
+				},
+				{
+					"color": "#AEB3C3",
+					"name": "Faded Indigo",
+					"slug": "faded-indigo"
 				}
 			]
 		},
@@ -174,7 +184,7 @@
 			}
 		},
 		"color": {
-			"background": "var(--wp--preset--color--light-apricot)",
+			"background": "var(--wp--preset--color--faded-indigo)",
 			"text": "var(--wp--preset--color--deep-indigo)"
 		},
 		"elements": {
