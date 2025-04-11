@@ -54,5 +54,15 @@ function load_projects_in_archive( $query ) {
 }
 add_action( 'pre_get_posts', 'load_projects_in_archive' );
 
+// GitHub button shortcode
+function nl_github_button_shortcode() {
+    $github = get_post_meta( get_the_ID(), '_nl_github_link', true );
+    if ( $github ) {
+        return '<a class="wp-block-button__link wp-element-button" href="' . esc_url( $github ) . '" target="_blank" rel="noopener">Github Repo</a>';
+    }
+    return '';
+}
+add_shortcode( 'github_button', 'nl_github_button_shortcode' );
+
 
 
