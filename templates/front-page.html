@@ -33,25 +33,17 @@
 <h2 class="wp-block-heading has-h-2-font-size" id="Projects" style="padding-left:var(--wp--preset--spacing--50)">Projects</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"metadata":{"categories":["posts"],"patternName":"core/query-offset-posts","name":"Offset"},"style":{"spacing":{"padding":{"top":"30px","right":"30px","bottom":"30px","left":"30px"}}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
-<div class="wp-block-group" style="padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:columns {"verticalAlignment":"center"} -->
-<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"100%","layout":{"type":"constrained"}} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:100%"><!-- wp:query {"queryId":11,"query":{"perPage":2,"pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"layout":{"type":"constrained"}} -->
-<div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"default"}} -->
-<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"border":{"radius":"10px"}}} /-->
+<!-- wp:query {"queryId":14,"query":{"perPage":4,"pages":0,"offset":0,"postType":"project","order":"asc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"tagName":"section","metadata":{"categories":["posts"],"patternName":"core/query-grid-posts","name":"Grid"},"className":"featured-projects","layout":{"type":"default"}} -->
+<section class="wp-block-query featured-projects"><!-- wp:post-template {"layout":{"type":"grid","columnCount":2,"minimumColumnWidth":null}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"30px","right":"30px","bottom":"30px","left":"30px"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group" style="padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:post-featured-image /-->
 
-<!-- wp:post-title {"level":3,"isLink":true,"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"fontSize":"h3"} /-->
+<!-- wp:post-title {"isLink":true} /-->
 
-<!-- wp:post-terms {"term":"project_category","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"fontSize":"nav"} /-->
-
-<!-- wp:spacer {"height":"58px"} -->
-<div style="height:58px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-<!-- /wp:post-template --></div>
-<!-- /wp:query --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div>
-<!-- /wp:group --></section>
+<!-- wp:post-terms {"term":"project_category"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template --></section>
+<!-- /wp:query --></section>
 <!-- /wp:group -->
 
 <!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
