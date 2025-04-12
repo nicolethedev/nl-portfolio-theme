@@ -64,3 +64,32 @@ footer a:hover {
 .project-details {
   margin: 1rem 3rem;
 }
+
+.wp-element-button-github {
+  background-color: transparent;
+  color: var(--wp--preset--color--deep-indigo);
+  border: 3px solid var(--wp--preset--color--deep-indigo);
+  border-radius: 15px;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.wp-element-button-github:hover {
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+}
+
+.wp-element-button-live {
+  background-color: var(--wp--preset--color--dusty-mauve);
+  color: white;
+  border: 2px solid var(--wp--preset--color--dusty-mauve);
+  border-radius: 15px;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.wp-element-button-live:hover {
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+  border: 2px solid var(--wp--preset--color--deep-indigo);
+}

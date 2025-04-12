@@ -22,17 +22,17 @@
 <p class="has-paragraph-font-size"><strong>Client / Purpose: </strong></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"fontSize":"paragraph"} -->
-<p class="has-paragraph-font-size"><strong>Role: </strong></p>
-<!-- /wp:paragraph --></div>
+<!-- wp:shortcode -->
+[project_role]
+<!-- /wp:shortcode --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"fontSize":"paragraph"} -->
-<p class="has-paragraph-font-size"><strong>Teammates: </strong></p>
-<!-- /wp:paragraph -->
+<div class="wp-block-group"><!-- wp:shortcode -->
+[project_teammates]
+<!-- /wp:shortcode -->
 
 <!-- wp:paragraph {"fontSize":"paragraph"} -->
 <p class="has-paragraph-font-size"><strong>Brief: </strong></p>
@@ -41,9 +41,15 @@
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center","layout":{"type":"constrained"}} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:shortcode -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group"><!-- wp:shortcode -->
 [github_button]
+<!-- /wp:shortcode -->
+
+<!-- wp:shortcode -->
+[live_button]
 <!-- /wp:shortcode --></div>
+<!-- /wp:group --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
