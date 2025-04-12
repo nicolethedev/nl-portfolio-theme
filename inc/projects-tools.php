@@ -163,140 +163,97 @@ add_action('edited_project_tool', 'nl_save_project_tool_meta', 10, 2);
 
 // Register Meta Boxes for Additional Fields in Projects
 function nl_add_project_meta_boxes() {
-    add_meta_box(
-        'project_links',
-        __( 'Project Links', 'nl-portfolio-theme' ),
-        'nl_render_project_links_box',
-        'project',
-        'side',
-        'default'
-    );
-    add_meta_box(
-        'project_details',
-        __( 'Project Details', 'nl-portfolio-theme' ),
-        'nl_render_project_details_box',
-        'project',
-        'normal',
-        'default'
-    );
-    add_meta_box(
-        'project_description',
-        __( 'Project Description', 'nl-portfolio-theme' ),
-        'nl_render_project_description_box',
-        'project',
-        'normal',
-        'default'
-    );
+    add_meta_box('project_links', __( 'Project Links', 'nl-portfolio-theme' ), 'nl_render_project_links_box', 'project', 'side');
+    add_meta_box('project_details', __( 'Project Details', 'nl-portfolio-theme' ), 'nl_render_project_details_box', 'project', 'normal');
+    add_meta_box('project_description', __( 'Project Description', 'nl-portfolio-theme' ), 'nl_render_project_description_box', 'project', 'normal');
+    add_meta_box('project_gallery', __( 'Project Gallery', 'nl-portfolio-theme' ), 'nl_render_project_gallery_box', 'project', 'normal');
 }
 add_action( 'add_meta_boxes', 'nl_add_project_meta_boxes' );
 
-// Render the Project Links meta box
 function nl_render_project_links_box( $post ) {
-    // Add a nonce field for security
     wp_nonce_field( basename( __FILE__ ), 'nl_project_links_nonce' );
-
     $github_link = get_post_meta( $post->ID, '_nl_github_link', true );
     $live_link   = get_post_meta( $post->ID, '_nl_live_link', true );
-    ?>
-    <p>
-        <label for="nl_github_link"><?php _e( 'GitHub Repository URL', 'nl-portfolio-theme' ); ?></label>
-        <input type="url" name="nl_github_link" id="nl_github_link" value="<?php echo esc_attr( $github_link ); ?>" style="width:100%;" />
-    </p>
-    <p>
-        <label for="nl_live_link"><?php _e( 'Live Project URL', 'nl-portfolio-theme' ); ?></label>
-        <input type="url" name="nl_live_link" id="nl_live_link" value="<?php echo esc_attr( $live_link ); ?>" style="width:100%;" />
-    </p>
-    <?php
+    echo '<p><label for="nl_github_link">GitHub URL</label><input type="url" name="nl_github_link" value="' . esc_attr($github_link) . '" style="width:100%;" /></p>';
+    echo '<p><label for="nl_live_link">Live URL</label><input type="url" name="nl_live_link" value="' . esc_attr($live_link) . '" style="width:100%;" /></p>';
 }
 
-// Render the Project Details meta box
 function nl_render_project_details_box( $post ) {
     wp_nonce_field( basename( __FILE__ ), 'nl_project_details_nonce' );
-
-    $role       = get_post_meta( $post->ID, '_nl_project_role', true );
-    $teammates  = get_post_meta( $post->ID, '_nl_project_teammates', true );
+    $role = get_post_meta( $post->ID, '_nl_project_role', true );
+    $teammates = get_post_meta( $post->ID, '_nl_project_teammates', true );
     $is_featured = get_post_meta( $post->ID, '_nl_project_featured', true );
-    ?>
-    <p>
-        <label for="nl_project_role"><?php _e( 'Your Role', 'nl-portfolio-theme' ); ?></label>
-        <input type="text" name="nl_project_role" id="nl_project_role" value="<?php echo esc_attr( $role ); ?>" style="width:100%;" />
-    </p>
-    <p>
-        <label for="nl_project_teammates"><?php _e( 'Other Teammates (comma separated)', 'nl-portfolio-theme' ); ?></label>
-        <input type="text" name="nl_project_teammates" id="nl_project_teammates" value="<?php echo esc_attr( $teammates ); ?>" style="width:100%;" />
-    </p>
-    <p>
-        <label for="nl_project_featured">
-            <input type="checkbox" name="nl_project_featured" id="nl_project_featured" <?php checked( $is_featured, 'on' ); ?> />
-            <?php _e( 'Featured Project', 'nl-portfolio-theme' ); ?>
-        </label>
-    </p>
-    <?php
+    $client = get_post_meta( $post->ID, '_nl_project_client', true );
+    $brief = get_post_meta( $post->ID, '_nl_project_brief', true );
+    echo '<p><label>Your Role</label><input type="text" name="nl_project_role" value="' . esc_attr($role) . '" style="width:100%;" /></p>';
+    echo '<p><label>Teammates</label><input type="text" name="nl_project_teammates" value="' . esc_attr($teammates) . '" style="width:100%;" /></p>';
+    echo '<p><label><input type="checkbox" name="nl_project_featured" ' . checked($is_featured, 'on', false) . ' /> Featured Project</label></p>';
+    echo '<p><label>Client / Purpose</label><input type="text" name="nl_project_client" value="' . esc_attr($client) . '" style="width:100%;" /></p>';
+    echo '<p><label>Project Brief</label><textarea name="nl_project_brief" rows="4" style="width:100%;">' . esc_textarea($brief) . '</textarea></p>';
 }
 
-// Render the Project Description meta box
 function nl_render_project_description_box( $post ) {
     wp_nonce_field( basename( __FILE__ ), 'nl_project_description_nonce' );
-    $project_description = get_post_meta( $post->ID, '_nl_project_description', true );
-    
-    // Using the built-in WordPress editor
-    wp_editor( $project_description, 'nl_project_description', array(
-        'textarea_name' => 'nl_project_description',
-        'textarea_rows' => 10,
-        'media_buttons' => false,
-    ) );
-    ?>
+    $desc = get_post_meta( $post->ID, '_nl_project_description', true );
+    wp_editor( $desc, 'nl_project_description', [ 'textarea_name' => 'nl_project_description', 'textarea_rows' => 10, 'media_buttons' => false ] );
+}
 
+function nl_render_project_gallery_box( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'nl_project_gallery_nonce' );
+    $image_ids = get_post_meta( $post->ID, '_nl_project_gallery', true );
+    ?>
+    <p><a href="#" class="button" id="nl_add_project_images">Add Project Images</a>
+    <input type="hidden" id="nl_project_gallery" name="nl_project_gallery" value="<?php echo esc_attr( $image_ids ); ?>" />
+    <ul id="nl_project_gallery_preview">
+        <?php
+        if ( $image_ids ) {
+            foreach ( explode(',', $image_ids) as $id ) {
+                echo '<li style="display:inline-block; margin-right:10px;">' . wp_get_attachment_image($id, 'thumbnail') . '</li>';
+            }
+        }
+        ?>
+    </ul></p>
+    <script>
+    jQuery(document).ready(function($){
+        var frame;
+        $('#nl_add_project_images').on('click', function(e){
+            e.preventDefault();
+            if (frame) { frame.open(); return; }
+            frame = wp.media({ title: 'Select or Upload Images', button: { text: 'Use these images' }, multiple: true });
+            frame.on('select', function(){
+                var attachments = frame.state().get('selection').toJSON();
+                var ids = attachments.map(img => img.id).join(',');
+                var preview = attachments.map(img => `<li style=\"display:inline-block; margin-right:10px;\"><img src=\"${img.sizes.thumbnail.url}\" /></li>`).join('');
+                $('#nl_project_gallery').val(ids);
+                $('#nl_project_gallery_preview').html(preview);
+            });
+            frame.open();
+        });
+    });
+    </script>
     <?php
 }
 
-// Save the meta box data for Projects
 function nl_save_project_meta_boxes( $post_id ) {
-    // Verify nonces for each meta box
-    if ( isset( $_POST['nl_project_links_nonce'] ) && !wp_verify_nonce( $_POST['nl_project_links_nonce'], basename( __FILE__ ) ) ) {
-        return $post_id;
-    }
-    if ( isset( $_POST['nl_project_details_nonce'] ) && !wp_verify_nonce( $_POST['nl_project_details_nonce'], basename( __FILE__ ) ) ) {
-        return $post_id;
-    }
-    if ( isset( $_POST['nl_project_description_nonce'] ) && !wp_verify_nonce( $_POST['nl_project_description_nonce'], basename( __FILE__ ) ) ) {
-        return $post_id;
-    }
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return;
+    if ( isset($_POST['post_type']) && 'project' == $_POST['post_type'] && !current_user_can('edit_post', $post_id) ) return;
 
-    // Check autosave
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-        return $post_id;
-    }
-    
-    // Check permissions
-    if ( isset( $_POST['post_type'] ) && 'project' == $_POST['post_type'] ) {
-        if ( !current_user_can( 'edit_post', $post_id ) ) {
-            return $post_id;
-        }
-    }
+    // Save Links
+    if ( isset($_POST['nl_github_link']) ) update_post_meta($post_id, '_nl_github_link', esc_url_raw($_POST['nl_github_link']));
+    if ( isset($_POST['nl_live_link']) ) update_post_meta($post_id, '_nl_live_link', esc_url_raw($_POST['nl_live_link']));
 
-    // Save Project Links
-    if ( isset( $_POST['nl_github_link'] ) ) {
-        update_post_meta( $post_id, '_nl_github_link', esc_url_raw( $_POST['nl_github_link'] ) );
-    }
-    if ( isset( $_POST['nl_live_link'] ) ) {
-        update_post_meta( $post_id, '_nl_live_link', esc_url_raw( $_POST['nl_live_link'] ) );
-    }
+    // Save Details
+    update_post_meta($post_id, '_nl_project_featured', isset($_POST['nl_project_featured']) ? 'on' : '');
+    if ( isset($_POST['nl_project_role']) ) update_post_meta($post_id, '_nl_project_role', sanitize_text_field($_POST['nl_project_role']));
+    if ( isset($_POST['nl_project_teammates']) ) update_post_meta($post_id, '_nl_project_teammates', sanitize_text_field($_POST['nl_project_teammates']));
+    if ( isset($_POST['nl_project_client']) ) update_post_meta($post_id, '_nl_project_client', sanitize_text_field($_POST['nl_project_client']));
+    if ( isset($_POST['nl_project_brief']) ) update_post_meta($post_id, '_nl_project_brief', sanitize_textarea_field($_POST['nl_project_brief']));
 
-    // Save Project Details
-    if ( isset( $_POST['nl_project_role'] ) ) {
-        update_post_meta( $post_id, '_nl_project_role', sanitize_text_field( $_POST['nl_project_role'] ) );
-    }
-    if ( isset( $_POST['nl_project_teammates'] ) ) {
-        update_post_meta( $post_id, '_nl_project_teammates', sanitize_text_field( $_POST['nl_project_teammates'] ) );
-    }
-    // Checkbox: if not checked, update accordingly.
-    update_post_meta( $post_id, '_nl_project_featured', isset( $_POST['nl_project_featured'] ) ? 'on' : '' );
+    // Save Description
+    if ( isset($_POST['nl_project_description']) ) update_post_meta($post_id, '_nl_project_description', wp_kses_post($_POST['nl_project_description']));
 
-    // Save Project Description
-    if ( isset( $_POST['nl_project_description'] ) ) {
-        update_post_meta( $post_id, '_nl_project_description', wp_kses_post( $_POST['nl_project_description'] ) );
-    }
+    // Save Gallery
+    if ( isset($_POST['nl_project_gallery']) ) update_post_meta($post_id, '_nl_project_gallery', sanitize_text_field($_POST['nl_project_gallery']));
 }
-add_action( 'save_post', 'nl_save_project_meta_boxes' );
-?>
+add_action('save_post', 'nl_save_project_meta_boxes');
+

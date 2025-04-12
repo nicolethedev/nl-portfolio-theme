@@ -93,3 +93,62 @@ footer a:hover {
   color: white;
   border: 2px solid var(--wp--preset--color--deep-indigo);
 }
+
+/* Badges */
+.taxonomy-badges {
+  margin: 1rem 0;
+}
+
+.taxonomy-badge {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  margin: 0 0.5em 0.5em 0;
+  border: 1px solid var(--wp--preset--color--deep-indigo);
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+  border-radius: 15px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Front Page Project section */
+
+section .featured-projects {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+div .front-project-info-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Stack them on smaller screens */
+@media (max-width: 750px) {
+  section .featured-projects,
+  div .front-project-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  div .front-project-title,
+  div .front-project-categories {
+    width: 100%;
+  }
+}
+
+.front-project-categories a {
+  text-decoration: none;
+  pointer-events: none;
+  border: 1px solid var(--wp--preset--color--deep-indigo);
+  border-radius: 15px;
+  padding: 0.25em 0.75em;
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+  text-transform: uppercase;
+  font-size: medium;
+}

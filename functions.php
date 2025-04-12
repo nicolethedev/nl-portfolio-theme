@@ -94,6 +94,72 @@ function nl_project_teammates_shortcode() {
 }
 add_shortcode( 'project_teammates', 'nl_project_teammates_shortcode' );
 
+// Shortcode for Project Client or Purpose
+function nl_project_client_shortcode() {
+    if ( is_singular( 'project' ) ) {
+        $client = get_post_meta( get_the_ID(), '_nl_project_client', true );
+        if ( $client ) {
+            return '<p><strong>Purpose:</strong> ' . esc_html( $client ) . '</p>';
+        }
+    }
+    return '';
+}
+add_shortcode( 'project_client', 'nl_project_client_shortcode' );
+
+// Shortcode for Project Brief
+function nl_project_brief_shortcode() {
+    if ( is_singular( 'project' ) ) {
+        $brief = get_post_meta( get_the_ID(), '_nl_project_brief', true );
+        if ( $brief ) {
+            return '<p><strong>Brief:</strong> ' . esc_html( $brief ) . '</p>';
+        }
+    }
+    return '';
+}
+add_shortcode( 'project_brief', 'nl_project_brief_shortcode' );
+
+// Shortcode for Project Tools
+function nl_project_tools_shortcode() {
+    global $post;
+
+    if ( empty( $post ) || $post->post_type !== 'project' ) return '';
+
+    $tools = get_the_terms( $post->ID, 'project_tool' );
+    if ( !$tools || is_wp_error( $tools ) ) return '';
+
+    $output = '<div class="taxonomy-badges project-tools">';
+    foreach ( $tools as $tool ) {
+        $output .= '<span class="taxonomy-badge">' . esc_html( $tool->name ) . '</span> ';
+    }
+    $output .= '</div>';
+
+    return $output;
+}
+add_shortcode( 'project_tools', 'nl_project_tools_shortcode' );
+
+
+
+// Project Categories Shortcode
+function nl_project_categories_shortcode() {
+    global $post;
+
+    if ( empty( $post ) || $post->post_type !== 'project' ) return '';
+
+    $categories = get_the_terms( $post->ID, 'project_category' );
+    if ( !$categories || is_wp_error( $categories ) ) return '';
+
+    $output = '<div class="taxonomy-badges project-categories">';
+    foreach ( $categories as $category ) {
+        $output .= '<span class="taxonomy-badge">' . esc_html( $category->name ) . '</span> ';
+    }
+    $output .= '</div>';
+
+    return $output;
+}
+add_shortcode( 'project_categories', 'nl_project_categories_shortcode' );
+
+
+
 
 
 
