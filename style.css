@@ -152,3 +152,9 @@ div .front-project-info-row {
   text-transform: uppercase;
   font-size: medium;
 }
+
+.view-all-projects a:hover {
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+  transition: all 0.3s ease;
+}
