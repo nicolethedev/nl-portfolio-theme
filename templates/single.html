@@ -32,10 +32,6 @@
 <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:40%"><!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:shortcode -->
 [project_teammates]
-<!-- /wp:shortcode -->
-
-<!-- wp:shortcode -->
-[project_brief]
 <!-- /wp:shortcode --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
@@ -53,28 +49,40 @@
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
-<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+<!-- wp:columns {"style":{"spacing":{"padding":{"right":"var:preset|spacing|70","left":"var:preset|spacing|70"}}}} -->
+<div class="wp-block-columns" style="padding-right:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)"><!-- wp:column {"width":"70%","layout":{"type":"default"}} -->
+<div class="wp-block-column" style="flex-basis:70%"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:heading {"level":3,"fontSize":"h3"} -->
 <h3 class="wp-block-heading has-h-3-font-size">About the project:</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p></p>
-<!-- /wp:paragraph -->
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:column -->
 
-<!-- wp:heading {"level":3,"fontSize":"h3"} -->
+<!-- wp:column {"width":"30%","layout":{"type":"default"}} -->
+<div class="wp-block-column" style="flex-basis:30%"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group"><!-- wp:heading {"level":3,"fontSize":"h3"} -->
+<h3 class="wp-block-heading has-h-3-font-size">Project Brief:</h3>
+<!-- /wp:heading -->
+
+<!-- wp:shortcode -->
+[project_brief]
+<!-- /wp:shortcode --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group"><!-- wp:heading {"level":3,"fontSize":"h3"} -->
 <h3 class="wp-block-heading has-h-3-font-size">Tools used:</h3>
 <!-- /wp:heading -->
 
 <!-- wp:shortcode -->
 [project_tools]
 <!-- /wp:shortcode --></div>
-<!-- /wp:group -->
-
-<!-- wp:image {"aspectRatio":"1","scale":"cover","align":"left","className":"is-style-rounded"} -->
-<figure class="wp-block-image alignleft is-style-rounded"><img alt="" style="aspect-ratio:1;object-fit:cover"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group -->
+<!-- /wp:group --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
 
 <!-- wp:template-part {"slug":"footer","area":"footer"} /-->

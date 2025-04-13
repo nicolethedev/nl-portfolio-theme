@@ -111,7 +111,7 @@ function nl_project_brief_shortcode() {
     if ( is_singular( 'project' ) ) {
         $brief = get_post_meta( get_the_ID(), '_nl_project_brief', true );
         if ( $brief ) {
-            return '<p><strong>Brief:</strong> ' . esc_html( $brief ) . '</p>';
+            return '' . esc_html( $brief ) . '</p>';
         }
     }
     return '';
@@ -137,8 +137,6 @@ function nl_project_tools_shortcode() {
 }
 add_shortcode( 'project_tools', 'nl_project_tools_shortcode' );
 
-
-
 // Project Categories Shortcode
 function nl_project_categories_shortcode() {
     global $post;
@@ -157,6 +155,7 @@ function nl_project_categories_shortcode() {
     return $output;
 }
 add_shortcode( 'project_categories', 'nl_project_categories_shortcode' );
+
 
 
 
