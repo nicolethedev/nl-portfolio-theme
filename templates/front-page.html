@@ -19,7 +19,7 @@
 
 <!-- wp:buttons {"style":{"spacing":{"blockGap":{"top":"0"},"padding":{"top":"0"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
 <div class="wp-block-buttons" style="padding-top:0"><!-- wp:button {"textAlign":"center","className":"is-style-fill","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"deep-indigo"} -->
-<div class="wp-block-button has-custom-font-size is-style-fill has-button-font-size"><a class="wp-block-button__link has-border-color has-deep-indigo-border-color has-text-align-center wp-element-button" href="#Projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View my Work</a></div>
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-border-color has-deep-indigo-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="#Projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View my Work</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -28,15 +28,16 @@
 <!-- /wp:spacer --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"backgroundColor":"faded-light-apricot","layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","justifyContent":"center"}} -->
-<section id="Projects" class="wp-block-group has-faded-light-apricot-background-color has-background" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50);padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
-<h2 class="wp-block-heading has-h-2-font-size" id="Projects" style="padding-left:var(--wp--preset--spacing--50)">Projects</h2>
+<!-- wp:group {"tagName":"section","className":"projects","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"backgroundColor":"faded-light-apricot","layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","justifyContent":"left"}} -->
+<section id="Projects" class="wp-block-group projects has-faded-light-apricot-background-color has-background" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50);padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
+<h2 class="wp-block-heading has-h-2-font-size" style="padding-left:var(--wp--preset--spacing--50)">Projects</h2>
 <!-- /wp:heading -->
 
-<!-- wp:query {"queryId":14,"query":{"perPage":4,"pages":0,"offset":0,"postType":"project","order":"asc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"tagName":"section","metadata":{"categories":["posts"],"patternName":"core/query-grid-posts","name":"Grid"},"className":"featured-projects","layout":{"type":"default"}} -->
-<section class="wp-block-query featured-projects"><!-- wp:post-template {"layout":{"type":"grid","columnCount":2,"minimumColumnWidth":null}} -->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:query {"queryId":14,"query":{"perPage":4,"pages":0,"offset":0,"postType":"project","order":"asc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"tagName":"section","metadata":{"categories":["posts"],"patternName":"core/query-grid-posts","name":"Grid"},"className":"featured-projects","layout":{"type":"default"}} -->
+<section class="wp-block-query featured-projects"><!-- wp:post-template {"style":{"spacing":{"padding":{"right":"var:preset|spacing|80","left":"var:preset|spacing|80"}}},"layout":{"type":"grid","columnCount":2,"minimumColumnWidth":null}} -->
 <!-- wp:group {"className":"project","style":{"spacing":{"padding":{"top":"30px","right":"30px","bottom":"30px","left":"30px"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-group project" style="padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"auto","className":"front-featured-image","style":{"border":{"radius":"15px"}}} /-->
+<div class="wp-block-group project" style="padding-top:30px;padding-right:30px;padding-bottom:30px;padding-left:30px"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"auto","width":"","height":"","sizeSlug":"full","className":"front-featured-image","style":{"border":{"radius":"15px"}}} /-->
 
 <!-- wp:group {"className":"front-project-info-row","style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group front-project-info-row" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0"><!-- wp:post-title {"level":3,"isLink":true,"className":"front-project-title","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"},"padding":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"},":hover":{"color":{"text":"var:preset|color|soft-blue"}}}}},"textColor":"deep-indigo","fontSize":"h3"} /-->
@@ -47,18 +48,21 @@
 <!-- /wp:post-template --></section>
 <!-- /wp:query -->
 
-<!-- wp:buttons {"backgroundColor":"dusty-mauve","fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons has-custom-font-size has-dusty-mauve-background-color has-background has-button-font-size"><!-- wp:button {"textAlign":"center","textColor":"deep-indigo","className":"view-all-projects is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}},"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button"} -->
-<div class="wp-block-button has-custom-font-size view-all-projects is-style-outline has-button-font-size"><a class="wp-block-button__link has-deep-indigo-color has-text-color has-link-color has-text-align-center wp-element-button" href="http://localhost/portfolio/all-projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View All Projects</a></div>
+<!-- wp:buttons {"fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons has-custom-font-size has-button-font-size"><!-- wp:button {"textAlign":"center","textColor":"deep-indigo","className":"view-all-projects is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}},"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button"} -->
+<div class="wp-block-button view-all-projects is-style-outline"><a class="wp-block-button__link has-deep-indigo-color has-text-color has-link-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/all-projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View All Projects</a></div>
 <!-- /wp:button --></div>
-<!-- /wp:buttons --></section>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
 <!-- /wp:group -->
 
-<!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
-<h2 class="wp-block-heading has-h-2-font-size" id="Skills" style="padding-left:var(--wp--preset--spacing--50)">Skills</h2>
+<!-- wp:group {"tagName":"section","className":"skills","layout":{"type":"flex","orientation":"vertical"}} -->
+<section id="Skills" class="wp-block-group skills"><!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
+<h2 class="wp-block-heading has-h-2-font-size" style="padding-left:var(--wp--preset--spacing--50)">Skills</h2>
 <!-- /wp:heading -->
 
-<!-- wp:columns {"style":{"spacing":{"padding":{"right":"var:preset|spacing|80","left":"var:preset|spacing|80"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"light-sky"} -->
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
+<div class="wp-block-group"><!-- wp:columns {"style":{"spacing":{"padding":{"right":"var:preset|spacing|80","left":"var:preset|spacing|80"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"light-sky"} -->
 <div class="wp-block-columns has-light-sky-background-color has-background" style="margin-top:0;margin-bottom:0;padding-right:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--80)"><!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"textAlign":"right","fontSize":"h3"} -->
 <h2 class="wp-block-heading has-text-align-right has-h-3-font-size">Languages + Frameworks</h2>
@@ -108,10 +112,12 @@
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:column --></div>
-<!-- /wp:columns -->
+<!-- /wp:columns --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","metadata":{"name":"About Section"},"layout":{"type":"default"}} -->
-<section id="About" class="wp-block-group"><!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"About"},"className":"about","layout":{"type":"default"}} -->
+<section id="About" class="wp-block-group about"><!-- wp:heading {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"}}},"fontSize":"h2"} -->
 <h2 class="wp-block-heading has-h-2-font-size" id="About" style="padding-left:var(--wp--preset--spacing--50)">About</h2>
 <!-- /wp:heading -->
 
@@ -127,7 +133,7 @@
 
 <!-- wp:buttons {"fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons has-custom-font-size has-button-font-size"><!-- wp:button {"textAlign":"center","className":"is-style-fill","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"deep-indigo"} -->
-<div class="wp-block-button has-custom-font-size is-style-fill has-button-font-size"><a class="wp-block-button__link has-border-color has-deep-indigo-border-color has-text-align-center wp-element-button" href="http://localhost/portfolio/about/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">Learn More About Me</a></div>
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-border-color has-deep-indigo-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/about/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">Learn More About Me</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>
 <!-- /wp:group -->

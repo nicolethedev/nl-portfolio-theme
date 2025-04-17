@@ -118,7 +118,7 @@ function nl_register_project_tools() {
         'rest_base'             => 'project_tool',
         'rewrite'               => array( 'slug' => 'project-tool' ),
     );
-    register_taxonomy( 'project_tool', 'project', $args );
+    register_taxonomy( 'project_tool', array( 'project' ), $args );
 }
 add_action( 'init', 'nl_register_project_tools', 0 );
 
