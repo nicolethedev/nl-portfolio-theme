@@ -165,7 +165,6 @@ add_action('edited_project_tool', 'nl_save_project_tool_meta', 10, 2);
 function nl_add_project_meta_boxes() {
     add_meta_box('project_links', __( 'Project Links', 'nl-portfolio-theme' ), 'nl_render_project_links_box', 'project', 'side');
     add_meta_box('project_details', __( 'Project Details', 'nl-portfolio-theme' ), 'nl_render_project_details_box', 'project', 'normal');
-    add_meta_box('project_description', __( 'Project Description', 'nl-portfolio-theme' ), 'nl_render_project_description_box', 'project', 'normal');
     add_meta_box('project_gallery', __( 'Project Gallery', 'nl-portfolio-theme' ), 'nl_render_project_gallery_box', 'project', 'normal');
 }
 add_action( 'add_meta_boxes', 'nl_add_project_meta_boxes' );
@@ -190,12 +189,6 @@ function nl_render_project_details_box( $post ) {
     echo '<p><label><input type="checkbox" name="nl_project_featured" ' . checked($is_featured, 'on', false) . ' /> Featured Project</label></p>';
     echo '<p><label>Client / Purpose</label><input type="text" name="nl_project_client" value="' . esc_attr($client) . '" style="width:100%;" /></p>';
     echo '<p><label>Project Brief</label><textarea name="nl_project_brief" rows="4" style="width:100%;">' . esc_textarea($brief) . '</textarea></p>';
-}
-
-function nl_render_project_description_box( $post ) {
-    wp_nonce_field( basename( __FILE__ ), 'nl_project_description_nonce' );
-    $desc = get_post_meta( $post->ID, '_nl_project_description', true );
-    wp_editor( $desc, 'nl_project_description', [ 'textarea_name' => 'nl_project_description', 'textarea_rows' => 10, 'media_buttons' => false ] );
 }
 
 function nl_render_project_gallery_box( $post ) {
@@ -248,9 +241,6 @@ function nl_save_project_meta_boxes( $post_id ) {
     if ( isset($_POST['nl_project_teammates']) ) update_post_meta($post_id, '_nl_project_teammates', sanitize_text_field($_POST['nl_project_teammates']));
     if ( isset($_POST['nl_project_client']) ) update_post_meta($post_id, '_nl_project_client', sanitize_text_field($_POST['nl_project_client']));
     if ( isset($_POST['nl_project_brief']) ) update_post_meta($post_id, '_nl_project_brief', sanitize_textarea_field($_POST['nl_project_brief']));
-
-    // Save Description
-    if ( isset($_POST['nl_project_description']) ) update_post_meta($post_id, '_nl_project_description', wp_kses_post($_POST['nl_project_description']));
 
     // Save Gallery
     if ( isset($_POST['nl_project_gallery']) ) update_post_meta($post_id, '_nl_project_gallery', sanitize_text_field($_POST['nl_project_gallery']));
