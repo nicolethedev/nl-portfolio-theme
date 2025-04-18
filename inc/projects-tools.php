@@ -52,7 +52,7 @@ function nl_portfolio_projects_cpt() {
         'publicly_queryable'    => true,
         'capability_type'       => 'post',
         'show_in_rest'          => true,
-        'rewrite'               => array( 'slug' => 'project' ),
+        'rewrite'               => array( 'slug' => 'projects' ),
     );
     register_post_type( 'project', $args );
 }

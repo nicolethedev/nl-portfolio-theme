@@ -22,3 +22,10 @@ body {
 }
 
 /* Making sections 100vh */
+
+/* Hero Button Style */
+.hero-button:hover {
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+  transition: all 0.3s ease;
+}
