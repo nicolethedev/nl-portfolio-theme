@@ -18,12 +18,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Navigation bar */
+
 .custom-nav {
   margin: 0 1.25rem;
 }
 
 .custom-nav a:hover {
   text-decoration: underline;
+  text-decoration-color: rgba(54, 65, 106, 0.35);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 0.1rem;
 }
 
 .skill-cards {
@@ -33,6 +38,8 @@ html {
 a .backbutton {
   vertical-align: middle;
 }
+
+/* Footer */
 
 footer .is-style-default {
   margin: 0 1.25rem;
@@ -50,7 +57,8 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-  color: #deaed4;
+  text-decoration-style: wavy;
+  text-decoration-color: rgb(222, 174, 212, 0.8);
 }
 
 /* single project page */

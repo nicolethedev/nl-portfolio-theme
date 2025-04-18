@@ -1,9 +1,9 @@
 body {
   background: linear-gradient(
     132deg,
-    rgb(122, 140, 221, 0.8),
-    rgb(222, 174, 212, 0.8),
-    rgb(255, 236, 202, 0.8)
+    rgba(122, 140, 221, 0.8),
+    rgba(222, 174, 212, 0.8),
+    rgba(255, 153, 70, 0.8)
   );
   background-size: 300% 300%;
   animation: BackgroundGradient 40s ease infinite;
