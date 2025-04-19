@@ -14,8 +14,33 @@ Text Domain: nl-portfolio-theme
 Tags: 
 */
 
+/* Universal styling across all pages */
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(
+    132deg,
+    rgba(122, 140, 221, 0.8),
+    rgba(222, 174, 212, 0.8),
+    rgba(255, 153, 70, 0.8)
+  );
+  background-size: 300% 300%;
+  animation: BackgroundGradient 40s ease infinite;
+}
+
+@keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Navigation bar */
@@ -38,14 +63,6 @@ html {
     left: 0;
   }
 } */
-
-.skill-cards {
-  margin: 0 1.25rem;
-}
-
-a .backbutton {
-  vertical-align: middle;
-}
 
 /* Footer Styling for Desktop & Mobile */
 
@@ -81,133 +98,5 @@ footer a:hover {
   footer .copyright-privacy {
     justify-content: center;
     padding-top: 1rem;
-  }
-}
-
-/* single project page */
-
-.backbutton {
-  text-decoration: none;
-  vertical-align: middle;
-  padding-left: 3rem;
-}
-
-.project-details {
-  margin: 1rem 3rem;
-}
-
-.wp-element-button-github {
-  background-color: transparent;
-  color: var(--wp--preset--color--deep-indigo);
-  border: 3px solid var(--wp--preset--color--deep-indigo);
-  border-radius: 15px;
-  padding: 0.75rem 2rem;
-  transition: all 0.3s ease;
-}
-
-.wp-element-button-github:hover {
-  background-color: var(--wp--preset--color--deep-indigo);
-  color: white;
-}
-
-.wp-element-button-live {
-  background-color: var(--wp--preset--color--dusty-mauve);
-  color: white;
-  border: 2px solid var(--wp--preset--color--dusty-mauve);
-  border-radius: 15px;
-  padding: 0.75rem 2rem;
-  transition: all 0.3s ease;
-}
-
-.wp-element-button-live:hover {
-  background-color: var(--wp--preset--color--deep-indigo);
-  color: white;
-  border: 2px solid var(--wp--preset--color--deep-indigo);
-}
-
-/* Badges */
-.taxonomy-badges {
-  margin: 1rem 0;
-}
-
-.taxonomy-badge {
-  display: inline-block;
-  padding: 0.25em 0.75em;
-  margin: 0 0.5em 0.5em 0;
-  border: 1px solid var(--wp--preset--color--deep-indigo);
-  background-color: var(--wp--preset--color--deep-indigo);
-  color: white;
-  border-radius: 15px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Front Page Project section */
-
-.projects .featured-projects a:hover {
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  text-decoration-thickness: 0.1rem;
-  text-underline-offset: 0.2rem;
-}
-
-section .featured-projects {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-div .front-project-info-row {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-/* Stack them on smaller screens */
-
-@media (max-width: 750px) {
-  section .featured-projects,
-  div .front-project-info-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  div .front-project-title,
-  div .front-project-categories {
-    width: 100%;
-  }
-}
-
-.front-project-categories a {
-  text-decoration: none;
-  pointer-events: none;
-  border: 1px solid var(--wp--preset--color--soft-blue);
-  border-radius: 15px;
-  padding: 0.25em 0.75em;
-  background-color: var(--wp--preset--color--soft-blue);
-  color: white;
-  text-transform: uppercase;
-  font-size: medium;
-}
-
-/* Mobile Stying for About Section on Front Page */
-
-.about-section img {
-  max-width: 35rem;
-  padding-left: 2rem;
-}
-
-@media (max-width: 64.375rem) {
-  .about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-section img {
-    max-width: 20rem;
-    padding: 0;
   }
 }

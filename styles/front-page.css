@@ -1,28 +1,74 @@
-body {
-  background: linear-gradient(
-    132deg,
-    rgba(122, 140, 221, 0.8),
-    rgba(222, 174, 212, 0.8),
-    rgba(255, 153, 70, 0.8)
-  );
-  background-size: 300% 300%;
-  animation: BackgroundGradient 40s ease infinite;
-}
-
-@keyframes BackgroundGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 /* Button Style on Hover */
 .button a:hover {
   background-color: var(--wp--preset--color--dusty-mauve);
   transition: all 0.3s ease;
+}
+
+/* Front Page Project section */
+
+.projects .featured-projects a:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.2rem;
+}
+
+section .featured-projects {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+div .front-project-info-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Stack them on smaller screens */
+
+@media (max-width: 750px) {
+  section .featured-projects,
+  div .front-project-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  div .front-project-title,
+  div .front-project-categories {
+    width: 100%;
+  }
+}
+
+.front-project-categories a {
+  text-decoration: none;
+  pointer-events: none;
+  border: 1px solid var(--wp--preset--color--soft-blue);
+  border-radius: 15px;
+  padding: 0.25em 0.75em;
+  background-color: var(--wp--preset--color--soft-blue);
+  color: white;
+  text-transform: uppercase;
+  font-size: medium;
+}
+
+/* Mobile Stying for About Section on Front Page */
+
+.about-section img {
+  max-width: 35rem;
+  padding-left: 2rem;
+}
+
+@media (max-width: 64.375rem) {
+  .about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-section img {
+    max-width: 20rem;
+    padding: 0;
+  }
 }
