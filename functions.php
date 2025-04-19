@@ -145,6 +145,22 @@ function nl_project_categories_shortcode() {
 }
 add_shortcode( 'project_categories', 'nl_project_categories_shortcode' );
 
+// Adding function to prevent currently viewed project from showing in the 'more projects' section
+function nl_exclude_current_project_from_query_loop( $query ) {
+    if (
+        !is_admin() &&
+        is_singular( 'project' ) &&
+        $query->is_main_query() === false &&
+        isset( $query->query_vars['post_type'] ) &&
+        $query->query_vars['post_type'] === 'project'
+    ) {
+        $current_post_id = get_the_ID();
+        $excluded = (array) $query->get( 'post__not_in' );
+        $excluded[] = $current_post_id;
+        $query->set( 'post__not_in', $excluded );
+    }
+}
+add_action( 'pre_get_posts', 'nl_exclude_current_project_from_query_loop' );
 
 
 
