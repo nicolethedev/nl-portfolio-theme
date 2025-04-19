@@ -2,9 +2,7 @@
   margin: 0 1.25rem;
 }
 
-a .backbutton {
-  vertical-align: middle;
-}
+/* Project Title Row */
 
 .backbutton {
   text-decoration: none;
@@ -12,6 +10,41 @@ a .backbutton {
   padding-left: 3rem;
 }
 
+/* Category Badges in Title Row */
+
+.single-project-categories a {
+  text-decoration: none;
+  pointer-events: none;
+  border: 1px solid var(--wp--preset--color--soft-blue);
+  border-radius: 15px;
+  padding: 0.25em 0.75em;
+  background-color: var(--wp--preset--color--soft-blue);
+  color: white;
+  text-transform: uppercase;
+  font-size: medium;
+}
+
+@media (max-width: 47.5rem) {
+  .has-h-1-font-size {
+    font-size: 2rem !important;
+  }
+  .single-project-categories a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 39.375rem) {
+  .has-h-1-font-size {
+    font-size: 1.5rem !important;
+  }
+  .single-project-categories a {
+    display: none;
+  }
+}
+
+/* Project Image */
+
+/* Project Details Bar (Under Featured Image) */
 .project-details {
   margin: 1rem 3rem;
 }
@@ -43,6 +76,12 @@ a .backbutton {
   background-color: var(--wp--preset--color--deep-indigo);
   color: white;
   border: 2px solid var(--wp--preset--color--deep-indigo);
+}
+
+@media (max-width: 94rem) {
+  .project-buttons {
+    gap: 2rem;
+  }
 }
 
 /* Badges */
