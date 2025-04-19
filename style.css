@@ -145,6 +145,13 @@ footer a:hover {
 
 /* Front Page Project section */
 
+.projects .featured-projects a:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.2rem;
+}
+
 section .featured-projects {
   display: grid;
   gap: 2rem;
@@ -176,19 +183,13 @@ div .front-project-info-row {
 .front-project-categories a {
   text-decoration: none;
   pointer-events: none;
-  border: 1px solid var(--wp--preset--color--deep-indigo);
+  border: 1px solid var(--wp--preset--color--soft-blue);
   border-radius: 15px;
   padding: 0.25em 0.75em;
-  background-color: var(--wp--preset--color--deep-indigo);
+  background-color: var(--wp--preset--color--soft-blue);
   color: white;
   text-transform: uppercase;
   font-size: medium;
-}
-
-.view-all-projects a:hover {
-  background-color: var(--wp--preset--color--deep-indigo);
-  color: white;
-  transition: all 0.3s ease;
 }
 
 /* Mobile Stying for About Section on Front Page */

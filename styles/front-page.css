@@ -21,8 +21,6 @@ body {
   }
 }
 
-/* Making sections 100vh */
-
 /* Button Style on Hover */
 .button a:hover {
   background-color: var(--wp--preset--color--dusty-mauve);
