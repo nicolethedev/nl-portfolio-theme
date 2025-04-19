@@ -1,6 +1,8 @@
 <?php
 
 require_once get_template_directory() . '/inc/projects-tools.php';
+require_once get_template_directory() . '/inc/experience.php';
+
 
 function nl_enqueue_theme_assets() {
     // Always load Normalize and main theme stylesheet
