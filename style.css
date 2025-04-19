@@ -159,6 +159,7 @@ div .front-project-info-row {
 }
 
 /* Stack them on smaller screens */
+
 @media (max-width: 750px) {
   section .featured-projects,
   div .front-project-info-row {
@@ -188,4 +189,24 @@ div .front-project-info-row {
   background-color: var(--wp--preset--color--deep-indigo);
   color: white;
   transition: all 0.3s ease;
+}
+
+/* Mobile Stying for About Section on Front Page */
+
+.about-section img {
+  max-width: 35rem;
+  padding-left: 2rem;
+}
+
+@media (max-width: 64.375rem) {
+  .about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-section img {
+    max-width: 20rem;
+    padding: 0;
+  }
 }
