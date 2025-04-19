@@ -31,6 +31,14 @@ html {
   text-decoration-thickness: 0.1rem;
 }
 
+/* @media screen and (max-width: 768px) {
+  .sticky-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+} */
+
 .skill-cards {
   margin: 0 1.25rem;
 }
@@ -39,7 +47,7 @@ a .backbutton {
   vertical-align: middle;
 }
 
-/* Footer */
+/* Footer Styling for Desktop & Mobile */
 
 footer .is-style-default {
   margin: 0 1.25rem;
@@ -59,6 +67,21 @@ footer a:hover {
   text-decoration: underline;
   text-decoration-style: wavy;
   text-decoration-color: rgb(222, 174, 212, 0.8);
+}
+
+@media (max-width: 48rem) {
+  footer .connect-stack,
+  footer .contact-stack {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  footer .copyright-privacy {
+    justify-content: center;
+    padding-top: 1rem;
+  }
 }
 
 /* single project page */
