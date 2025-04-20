@@ -65,6 +65,26 @@ div .front-project-info-row {
   font-size: medium;
 }
 
+@media (max-width: 76.25rem) {
+  .front-project-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .front-project-title {
+    order: 2;
+  }
+
+  .front-project-categories {
+    padding-top: 0.5rem;
+  }
+
+  .front-project-categories a {
+    font-size: 0.8rem;
+    order: 1;
+  }
+}
+
 /* Mobile Stying for About Section on Front Page */
 
 .about-section img {
