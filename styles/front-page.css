@@ -5,6 +5,17 @@
   transition: all 0.3s ease;
 }
 
+/* Intro Text */
+@media (max-width: 36.5625rem) {
+  .wp-site-blocks .hero-intro {
+    font-size: 2.5rem !important;
+    line-height: 1.5;
+  }
+  .wp-site-blocks .hero-intro:last-of-type {
+    font-size: 2rem !important;
+    line-height: 1.5;
+  }
+}
 /* Front Page Project section */
 
 .projects .featured-projects a:hover {
