@@ -56,7 +56,7 @@ add_shortcode( 'github_button', 'nl_github_button_shortcode' );
 function nl_live_button_shortcode() {
     $live = get_post_meta( get_the_ID(), '_nl_live_link', true );
     if ( $live ) {
-        return '<a class="wp-block-button__link wp-element-button-live" href="' . esc_url( $live ) . '" target="_blank" rel="noopener">Live Project</a>';
+        return '<a class="wp-block-button__link wp-element-button-live" href="' . esc_url( $live ) . '" target="_blank" rel="noopener">Live Website</a>';
     }
     return '';
 }
