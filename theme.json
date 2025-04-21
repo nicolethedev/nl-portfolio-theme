@@ -45,6 +45,11 @@
 					"slug": "grape"
 				},
 				{
+					"color": "#343a85",
+					"name": "Dark Grape",
+					"slug": "dark-grape"
+				},
+				{
 					"color": "#C880C5",
 					"name": "Orchid",
 					"slug": "orchid"

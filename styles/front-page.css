@@ -6,8 +6,9 @@
 
 /* Button Style on Hover */
 
-.button a:hover {
-  background-color: var(--wp--preset--color--dusty-mauve);
+.button a:hover,
+.button a:focus {
+  background-color: #dad5fc;
   transition: all 0.3s ease;
 }
 
