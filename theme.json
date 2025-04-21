@@ -38,6 +38,16 @@
 					"color": "#AEB3C3",
 					"name": "Faded Indigo",
 					"slug": "faded-indigo"
+				},
+				{
+					"color": "#5259BB",
+					"name": "Grape",
+					"slug": "grape"
+				},
+				{
+					"color": "#C880C5",
+					"name": "Orchid",
+					"slug": "orchid"
 				}
 			]
 		},
@@ -49,7 +59,7 @@
 			"presets": [
 				{
 					"name": "Button Background",
-					"shadow": "-4px 4px 0px 0 #36416a",
+					"shadow": "-4px 4px 0px 0 #5259bb",
 					"slug": "shadow-1"
 				}
 			]

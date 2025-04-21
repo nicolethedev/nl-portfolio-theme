@@ -20,8 +20,8 @@
 <!-- /wp:spacer -->
 
 <!-- wp:buttons {"className":".hero-button","style":{"spacing":{"blockGap":{"top":"0"},"padding":{"top":"0"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
-<div class="wp-block-buttons .hero-button" style="padding-top:0"><!-- wp:button {"textAlign":"center","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"deep-indigo"} -->
-<div class="wp-block-button button"><a class="wp-block-button__link has-border-color has-deep-indigo-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="#Projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View my Work</a></div>
+<div class="wp-block-buttons .hero-button" style="padding-top:0"><!-- wp:button {"textAlign":"center","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"grape"} -->
+<div class="wp-block-button button"><a class="wp-block-button__link has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="#Projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View my Work</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -51,8 +51,8 @@
 <!-- /wp:query -->
 
 <!-- wp:buttons {"className":"button","fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons has-custom-font-size button has-button-font-size"><!-- wp:button {"textAlign":"center","textColor":"deep-indigo","className":"button","style":{"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}},"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button"} -->
-<div class="wp-block-button button"><a class="wp-block-button__link has-deep-indigo-color has-text-color has-link-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/projects/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View All Projects</a></div>
+<div class="wp-block-buttons has-custom-font-size button has-button-font-size"><!-- wp:button {"textAlign":"center","textColor":"deep-indigo","className":"button","style":{"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}},"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"grape"} -->
+<div class="wp-block-button button"><a class="wp-block-button__link has-deep-indigo-color has-text-color has-link-color has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/projects/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View All Projects</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
@@ -63,10 +63,10 @@
 <h2 class="wp-block-heading has-h-2-font-size" style="padding-left:var(--wp--preset--spacing--40)">Skills</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"className":"skills-tab-container","layout":{"type":"constrained","contentSize":""}} -->
-<div class="wp-block-group skills-tab-container"><!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|20"},"margin":{"top":"0","bottom":"0"}}}} -->
-<div class="wp-block-columns" style="margin-top:0;margin-bottom:0"><!-- wp:column {"verticalAlignment":"stretch","width":"","className":"tabs-content-container","style":{"spacing":{"blockGap":"0","padding":{"right":"0","left":"0"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-column is-vertically-aligned-stretch tabs-content-container" style="padding-right:0;padding-left:0"><!-- wp:html -->
+<!-- wp:group {"className":"skills-tab-container","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}},"layout":{"type":"constrained","contentSize":""}} -->
+<div class="wp-block-group skills-tab-container" style="margin-top:var(--wp--preset--spacing--30)"><!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|20"},"margin":{"top":"0","bottom":"var:preset|spacing|70"},"padding":{"top":"0","bottom":"0"}}}} -->
+<div class="wp-block-columns alignwide are-vertically-aligned-center" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--70);padding-top:0;padding-bottom:0"><!-- wp:column {"verticalAlignment":"center","width":"350px","className":"tabs-content-container","style":{"spacing":{"blockGap":"0","padding":{"right":"0","left":"0"}}},"layout":{"type":"constrained","justifyContent":"center"}} -->
+<div class="wp-block-column is-vertically-aligned-center tabs-content-container" style="padding-right:0;padding-left:0;flex-basis:350px"><!-- wp:html -->
 <div class="skills-tabs">
   <button class="tab-button active" data-tab="languages">Languages & Frameworks</button>
   <button class="tab-button" data-tab="software">Software & Programs</button>
@@ -75,17 +75,17 @@
 <!-- /wp:html --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"verticalAlignment":"stretch","layout":{"type":"constrained"}} -->
-<div class="wp-block-column is-vertically-aligned-stretch"><!-- wp:group {"className":"tab-content active","layout":{"type":"constrained"}} -->
-<div id="languages" class="wp-block-group tab-content active"><!-- wp:paragraph -->
-<p>Testing Languages</p>
-<!-- /wp:paragraph --></div>
+<!-- wp:column {"verticalAlignment":"center","width":"","layout":{"type":"constrained"}} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:group {"className":"tab-content active","layout":{"type":"constrained"}} -->
+<div id="languages" class="wp-block-group tab-content active"><!-- wp:shortcode -->
+[list_terms taxonomy="project_tool" parent="59" hide_empty="false"]
+<!-- /wp:shortcode --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-content","layout":{"type":"constrained"}} -->
-<div id="software" class="wp-block-group tab-content"><!-- wp:paragraph -->
-<p>Testing Software</p>
-<!-- /wp:paragraph --></div>
+<div id="software" class="wp-block-group tab-content"><!-- wp:shortcode -->
+[list_terms taxonomy="project_tool" parent="60" hide_empty="false"]
+<!-- /wp:shortcode --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-content","layout":{"type":"constrained"}} -->
@@ -103,15 +103,15 @@
 <h2 class="wp-block-heading has-h-2-font-size" id="About" style="padding-left:var(--wp--preset--spacing--50)">About</h2>
 <!-- /wp:heading -->
 
-<!-- wp:media-text {"mediaId":308,"mediaLink":"http://localhost/portfolio/illustration/","mediaType":"image","mediaWidth":26,"imageFill":false,"className":"about-section","style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"},"margin":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}},"border":{"radius":"15px"}}} -->
-<div class="wp-block-media-text is-stacked-on-mobile about-section" style="border-radius:15px;margin-right:var(--wp--preset--spacing--30);margin-left:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20);grid-template-columns:26% auto"><figure class="wp-block-media-text__media"><img src="http://localhost/portfolio/wp-content/uploads/2025/04/illustration-1024x1024.png" alt="a simple illustration done in black ink of a portrait of Nicole" class="wp-image-308 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Content…","fontSize":"paragraph"} -->
+<!-- wp:media-text {"mediaId":308,"mediaLink":"http://localhost/portfolio/illustration/","mediaType":"image","mediaWidth":29,"imageFill":false,"className":"about-section","style":{"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"},"margin":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"}},"border":{"radius":"15px"}}} -->
+<div class="wp-block-media-text is-stacked-on-mobile about-section" style="border-radius:15px;margin-right:var(--wp--preset--spacing--40);margin-left:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20);grid-template-columns:29% auto"><figure class="wp-block-media-text__media"><img src="http://localhost/portfolio/wp-content/uploads/2025/04/illustration-1024x1024.png" alt="a simple illustration done in black ink of a portrait of Nicole" class="wp-image-308 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Content…","fontSize":"paragraph"} -->
 <p class="has-paragraph-font-size">Hi, I’m Nicole! I am a Vancouver-based designer and front-end developer who blends thoughtful UX, clean code, and bold visual storytelling. With a background in graphic design and a passion for accessibility, I create digital experiences that are intuitive, engaging, and crafted with care. I believe great design is both human and functional; rooted in empathy, shaped by curiosity, and never afraid of a little colour.</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:media-text -->
 
 <!-- wp:buttons {"style":{"spacing":{"blockGap":{"top":"0"},"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30"}}},"fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons has-custom-font-size has-button-font-size" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30)"><!-- wp:button {"textAlign":"center","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"deep-indigo"} -->
-<div class="wp-block-button button"><a class="wp-block-button__link has-border-color has-deep-indigo-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/about/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">Learn More About Me</a></div>
+<div class="wp-block-buttons has-custom-font-size has-button-font-size" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30)"><!-- wp:button {"textAlign":"center","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"grape"} -->
+<div class="wp-block-button button"><a class="wp-block-button__link has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/about/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">Learn More About Me</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>
 <!-- /wp:group -->

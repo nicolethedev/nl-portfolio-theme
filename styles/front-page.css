@@ -134,7 +134,7 @@ div .front-project-info-row {
   box-sizing: border-box;
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  background: #f3f6f7;
+  background: var(--wp--preset--color--soft-blue);
   color: #1b2323;
   font-size: 1.05rem;
   font-weight: 400;
@@ -145,12 +145,12 @@ div .front-project-info-row {
 
 .tab-button.active,
 .tab-button[aria-selected="true"] {
-  background: #1abc9c;
+  background: var(--wp--preset--color--grape);
   color: #fff;
 }
 
 .tab-button:focus-visible {
-  outline: 2px solid #1abc9c;
+  outline: 2px solid var(--wp--preset--color--soft-blue);
 }
 
 /* --- Responsive: Tabs remain vertical on mobile --- */
@@ -211,4 +211,32 @@ div .front-project-info-row {
 .wp-block-columns {
   gap: 2.5rem !important;
   align-items: flex-start;
+}
+
+/* Styling the term list for skills section */
+.nl-term-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nl-term-list li a {
+  text-decoration: none;
+  pointer-events: none;
+  border: 1px solid var(--wp--preset--color--deep-indigo);
+  border-radius: 0.5rem;
+  padding: 0.25em 0.75em;
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 47.5rem) {
+  .nl-term-list li a {
+    font-size: 1rem;
+  }
 }
