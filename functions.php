@@ -175,6 +175,45 @@ function nl_enqueue_front_page_assets() {
 }
 add_action('wp_enqueue_scripts', 'nl_enqueue_front_page_assets');
 
+// Shortcode to list terms for a given taxonomy
+function nl_list_terms_for_taxonomy_shortcode( $atts ) {
+    
+    $atts = shortcode_atts( array(
+        'taxonomy'   => '',    
+        'hide_empty' => 'false',
+        'parent'     => '',    
+    ), $atts, 'list_terms' );
+
+    if ( empty( $atts['taxonomy'] ) ) {
+        return '<p><em>Error: no taxonomy defined.</em></p>';
+    }
+
+    $args = array(
+        'taxonomy'   => sanitize_key( $atts['taxonomy'] ),
+        'hide_empty' => filter_var( $atts['hide_empty'], FILTER_VALIDATE_BOOLEAN ),
+    );
+    if ( $atts['parent'] !== '' ) {
+        $args['parent'] = ( $atts['parent'] === '0' ) ? 0 : absint( $atts['parent'] );
+    }
+
+    $terms = get_terms( $args );
+    if ( is_wp_error( $terms ) || empty( $terms ) ) {
+        return '<p>No terms found.</p>';
+    }
+
+    $output = '<ul class="nl-term-list">';
+    foreach ( $terms as $term ) {
+        $output .= sprintf(
+            '<li><a href="%s">%s</a></li>',
+            esc_url( get_term_link( $term ) ),
+            esc_html( $term->name )
+        );
+    }
+    $output .= '</ul>';
+
+    return $output;
+}
+add_shortcode( 'list_terms', 'nl_list_terms_for_taxonomy_shortcode' );
 
 
 

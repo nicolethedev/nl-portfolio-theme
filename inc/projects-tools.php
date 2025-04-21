@@ -97,6 +97,8 @@ function nl_register_project_tools() {
         'search_items'               => __( 'Search Project Tools', 'nl-portfolio-theme' ),
         'popular_items'              => __( 'Popular Project Tools', 'nl-portfolio-theme' ),
         'all_items'                  => __( 'All Project Tools', 'nl-portfolio-theme' ),
+        'parent_item'                => __( 'Parent Project Tool', 'nl-portfolio-theme' ),
+        'parent_item_colon'          => __( 'Parent Project Tool:', 'nl-portfolio-theme' ),
         'edit_item'                  => __( 'Edit Project Tool', 'nl-portfolio-theme' ),
         'update_item'                => __( 'Update Project Tool', 'nl-portfolio-theme' ),
         'add_new_item'               => __( 'Add New Project Tool', 'nl-portfolio-theme' ),
@@ -108,7 +110,7 @@ function nl_register_project_tools() {
         'menu_name'                  => __( 'Project Tools', 'nl-portfolio-theme' ),
     );
     $args = array(
-        'hierarchical'          => false,
+        'hierarchical'          => true,          // <-- make it category‑style
         'labels'                => $labels,
         'show_ui'               => true,
         'show_admin_column'     => true,
@@ -121,6 +123,7 @@ function nl_register_project_tools() {
     register_taxonomy( 'project_tool', array( 'project' ), $args );
 }
 add_action( 'init', 'nl_register_project_tools', 0 );
+
 
 // Add custom meta field to the Project Tools taxonomy (Icon URL)
 

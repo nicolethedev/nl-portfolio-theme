@@ -91,8 +91,6 @@ div .front-project-info-row {
   }
 }
 
-/* Skills Section */
-
 /* Mobile Stying for About Section on Front Page */
 
 .about-section img {
@@ -113,153 +111,104 @@ div .front-project-info-row {
   }
 }
 
-/* Skills Section - Tab styling  */
-/* ============ Universal (Mobile-first) ============ */
-.skills-tab-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-  background: var(--wp--preset--color--light-grey, #f7f7f7);
-  border-radius: 12px;
-}
+/* Skills Tabs */
 
+/* --- Tabs Container --- */
 .skills-tabs {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  align-items: stretch;
 }
 
+/* --- Tab Buttons --- */
 .tab-button {
   all: unset;
+  cursor: pointer;
   display: block;
   width: 100%;
   box-sizing: border-box;
-  text-align: center;
-  font-size: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  background-color: transparent;
-  border: 2px solid var(--wp--preset--color--teal, teal);
-  color: var(--wp--preset--color--dark-grey, #1b2323);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 3rem;
-  position: relative;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  background: #f3f6f7;
+  color: #1b2323;
+  font-size: 1.05rem;
+  font-weight: 400;
+  border: 2px solid transparent;
+  text-align: left;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
 .tab-button.active,
 .tab-button[aria-selected="true"] {
-  background-color: var(--wp--preset--color--teal, teal);
+  background: #1abc9c;
   color: #fff;
-  border-color: var(--wp--preset--color--teal, teal);
 }
 
 .tab-button:focus-visible {
-  outline: 2px solid var(--wp--preset--color--teal, teal);
-  outline-offset: 2px;
+  outline: 2px solid #1abc9c;
 }
 
-.tab-button:hover:not(.active):not([aria-selected="true"]) {
-  background-color: rgba(0, 128, 128, 0.08);
-  color: var(--wp--preset--color--teal, teal);
+/* --- Responsive: Tabs remain vertical on mobile --- */
+@media (max-width: 767px) {
+  .skills-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 100%;
+    padding: 0.5rem 0;
+  }
+  .tab-button {
+    text-align: center;
+    font-size: 0.98rem;
+    padding: 0.75rem 1rem;
+  }
 }
 
-/* Arrow indicator with spacing */
-.tab-button.active::after,
-.tab-button[aria-selected="true"]::after {
-  content: "";
-  position: absolute;
-  right: -28px; /* More space between arrow and button */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 12px solid var(--wp--preset--color--teal, teal);
-  display: none; /* Only show on desktop/tablet */
-}
-
-/* Tab content area */
-.skills-content {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 6px;
-  min-height: 280px; /* Ensures area doesn't shrink */
-  height: 280px; /* Fixed height prevents jumping */
-  box-sizing: border-box;
-  box-shadow: 0 2px 12px rgba(27, 35, 35, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow-y: auto;
-}
-
+/* --- Tab Content Groups --- */
 .tab-content {
+  border-radius: 10px;
+  padding: 2rem;
+  min-height: 220px;
+  margin: 0;
+  position: relative;
+  z-index: 0;
+  display: none;
   opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(10px);
-  pointer-events: none;
+  transition: opacity 0.3s;
+  vertical-align: top;
 }
 
 .tab-content.active {
+  display: block;
   opacity: 1;
-  height: auto;
-  transform: translateY(0);
-  pointer-events: auto;
+  animation: fadeInTab 0.4s;
 }
 
-/* ============ Desktop & Tablet (≥768px) ============ */
-@media (min-width: 768px) {
-  .skills-tab-container {
-    display: grid;
-    grid-template-columns: minmax(260px, 320px) 1fr;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 2.5rem;
-    padding: 3rem 4vw;
+@keyframes fadeInTab {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-  .skills-tabs {
-    min-width: 260px;
-    max-width: 320px;
-    overflow: hidden;
-    z-index: 1;
-  }
-  .tab-button {
-    min-width: 220px;
-    font-size: 1.1rem;
-    padding: 1rem 1.5rem;
-  }
-  .tab-button.active::after,
-  .tab-button[aria-selected="true"]::after {
-    display: block; /* Show arrow on desktop/tablet */
-  }
-  .skills-content {
-    min-width: 0;
-    padding: 2rem;
-    height: 320px; /* Slightly taller for desktop */
-    min-height: 320px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ============ Small screens ============ */
+/* --- Responsive: Content area on mobile --- */
 @media (max-width: 767px) {
-  .skills-tab-container {
+  .tab-content {
     padding: 1rem;
+    min-height: 120px;
   }
-  .skills-content {
-    height: 220px;
-    min-height: 220px;
-    padding: 1rem;
-  }
+}
+
+/* Giving columns space */
+.wp-block-columns {
+  gap: 2.5rem !important;
+  align-items: flex-start;
 }
