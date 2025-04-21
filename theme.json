@@ -64,7 +64,7 @@
 			"presets": [
 				{
 					"name": "Button Background",
-					"shadow": "-4px 4px 0px 0 #5259bb",
+					"shadow": "-4px 4px 0px 0 #343a85",
 					"slug": "shadow-1"
 				}
 			]
@@ -205,8 +205,8 @@
 		"elements": {
 			"button": {
 				"color": {
-					"background": "var(--wp--preset--color--dusty-mauve)",
-					"text": "var(--wp--preset--color--deep-indigo)"
+					"background": "var(--wp--preset--color--deep-indigo)",
+					"text": "var(--wp--preset--color--light-apricot)"
 				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--hammersmith-one)",
