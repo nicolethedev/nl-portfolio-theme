@@ -161,6 +161,19 @@ function nl_exclude_current_project_from_query_loop( $query ) {
 }
 add_action( 'pre_get_posts', 'nl_exclude_current_project_from_query_loop' );
 
+function nl_enqueue_front_page_assets() {
+    if ( is_front_page() ) {
+        
+        wp_enqueue_script(
+            'nl-tabs-script',
+            get_template_directory_uri() . '/assets/js/tabs.js',
+            array(), 
+            '1.0',
+            true 
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'nl_enqueue_front_page_assets');
 
 
 

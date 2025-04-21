@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Button Style on Hover */
 
 .button a:hover {
@@ -85,6 +91,8 @@ div .front-project-info-row {
   }
 }
 
+/* Skills Section */
+
 /* Mobile Stying for About Section on Front Page */
 
 .about-section img {
@@ -102,5 +110,156 @@ div .front-project-info-row {
   .about-section img {
     max-width: 20rem;
     padding: 0;
+  }
+}
+
+/* Skills Section - Tab styling  */
+/* ============ Universal (Mobile-first) ============ */
+.skills-tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  background: var(--wp--preset--color--light-grey, #f7f7f7);
+  border-radius: 12px;
+}
+
+.skills-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.tab-button {
+  all: unset;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid var(--wp--preset--color--teal, teal);
+  color: var(--wp--preset--color--dark-grey, #1b2323);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 3rem;
+  position: relative;
+}
+
+.tab-button.active,
+.tab-button[aria-selected="true"] {
+  background-color: var(--wp--preset--color--teal, teal);
+  color: #fff;
+  border-color: var(--wp--preset--color--teal, teal);
+}
+
+.tab-button:focus-visible {
+  outline: 2px solid var(--wp--preset--color--teal, teal);
+  outline-offset: 2px;
+}
+
+.tab-button:hover:not(.active):not([aria-selected="true"]) {
+  background-color: rgba(0, 128, 128, 0.08);
+  color: var(--wp--preset--color--teal, teal);
+}
+
+/* Arrow indicator with spacing */
+.tab-button.active::after,
+.tab-button[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  right: -28px; /* More space between arrow and button */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid var(--wp--preset--color--teal, teal);
+  display: none; /* Only show on desktop/tablet */
+}
+
+/* Tab content area */
+.skills-content {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  min-height: 280px; /* Ensures area doesn't shrink */
+  height: 280px; /* Fixed height prevents jumping */
+  box-sizing: border-box;
+  box-shadow: 0 2px 12px rgba(27, 35, 35, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.tab-content {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.tab-content.active {
+  opacity: 1;
+  height: auto;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ============ Desktop & Tablet (≥768px) ============ */
+@media (min-width: 768px) {
+  .skills-tab-container {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) 1fr;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2.5rem;
+    padding: 3rem 4vw;
+  }
+  .skills-tabs {
+    min-width: 260px;
+    max-width: 320px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .tab-button {
+    min-width: 220px;
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+  }
+  .tab-button.active::after,
+  .tab-button[aria-selected="true"]::after {
+    display: block; /* Show arrow on desktop/tablet */
+  }
+  .skills-content {
+    min-width: 0;
+    padding: 2rem;
+    height: 320px; /* Slightly taller for desktop */
+    min-height: 320px;
+  }
+}
+
+/* ============ Small screens ============ */
+@media (max-width: 767px) {
+  .skills-tab-container {
+    padding: 1rem;
+  }
+  .skills-content {
+    height: 220px;
+    min-height: 220px;
+    padding: 1rem;
   }
 }
