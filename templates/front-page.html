@@ -20,8 +20,8 @@
 <!-- /wp:spacer -->
 
 <!-- wp:buttons {"className":".hero-button","style":{"spacing":{"blockGap":{"top":"0"},"padding":{"top":"0"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
-<div class="wp-block-buttons .hero-button" style="padding-top:0"><!-- wp:button {"textAlign":"center","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"grape"} -->
-<div class="wp-block-button button"><a class="wp-block-button__link has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="#Projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View my Work</a></div>
+<div class="wp-block-buttons .hero-button" style="padding-top:0"><!-- wp:button {"textAlign":"center","textColor":"grape","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1","elements":{"link":{"color":{"text":"var:preset|color|grape"}}}},"fontSize":"button","borderColor":"grape"} -->
+<div class="wp-block-button button"><a class="wp-block-button__link has-grape-color has-text-color has-link-color has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="#Projects" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">Explore my Designs </a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -51,8 +51,8 @@
 <!-- /wp:query -->
 
 <!-- wp:buttons {"className":"button","fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons has-custom-font-size button has-button-font-size"><!-- wp:button {"textAlign":"center","textColor":"deep-indigo","className":"button","style":{"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}},"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"grape"} -->
-<div class="wp-block-button button"><a class="wp-block-button__link has-deep-indigo-color has-text-color has-link-color has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/projects/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">View All Projects</a></div>
+<div class="wp-block-buttons has-custom-font-size button has-button-font-size"><!-- wp:button {"textAlign":"center","textColor":"grape","className":"button","style":{"elements":{"link":{"color":{"text":"var:preset|color|grape"}}},"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"grape"} -->
+<div class="wp-block-button button"><a class="wp-block-button__link has-grape-color has-text-color has-link-color has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/projects/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">All Projects</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
@@ -89,9 +89,19 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-content","layout":{"type":"constrained"}} -->
-<div id="certs" class="wp-block-group tab-content"><!-- wp:paragraph -->
-<p>Testing Certs</p>
-<!-- /wp:paragraph --></div>
+<div id="certs" class="wp-block-group tab-content"><!-- wp:query {"queryId":14,"query":{"perPage":10,"pages":0,"offset":0,"postType":"experience","order":"asc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"metadata":{"categories":["posts"],"patternName":"core/query-small-posts","name":"Small image and title"}} -->
+<div class="wp-block-query"><!-- wp:post-template -->
+<!-- wp:group {"style":{"border":{"radius":"10px"},"spacing":{"padding":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20","top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"backgroundColor":"light-apricot","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group has-light-apricot-background-color has-background" style="border-radius:10px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20)"><!-- wp:post-featured-image {"width":"60px","height":"60px","scale":"contain","style":{"spacing":{"padding":{"left":"var:preset|spacing|40","right":"0"}}}} /-->
+
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"},"padding":{"top":"0","bottom":"0"},"blockGap":"var:preset|spacing|20"},"dimensions":{"minHeight":"0px"}},"layout":{"type":"flex","orientation":"vertical","verticalAlignment":"center","flexWrap":"nowrap","justifyContent":"left"}} -->
+<div class="wp-block-group" style="min-height:0px;margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20);padding-top:0;padding-bottom:0"><!-- wp:post-title {"level":3,"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}}},"fontSize":"button"} /-->
+
+<!-- wp:post-content {"style":{"spacing":{"blockGap":"0","padding":{"bottom":"0","top":"0px"},"margin":{"bottom":"0","left":"0","right":"0","top":"-10px"}},"layout":{"selfStretch":"fit","flexSize":null}},"fontSize":"paragraph"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- /wp:post-template --></div>
+<!-- /wp:query --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
@@ -110,8 +120,8 @@
 <!-- /wp:media-text -->
 
 <!-- wp:buttons {"style":{"spacing":{"blockGap":{"top":"0"},"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30"}}},"fontSize":"button","layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons has-custom-font-size has-button-font-size" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30)"><!-- wp:button {"textAlign":"center","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1"},"fontSize":"button","borderColor":"grape"} -->
-<div class="wp-block-button button"><a class="wp-block-button__link has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/about/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">Learn More About Me</a></div>
+<div class="wp-block-buttons has-custom-font-size has-button-font-size" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30)"><!-- wp:button {"textAlign":"center","textColor":"grape","className":"button","style":{"border":{"radius":"25px","width":"5px"},"shadow":"var:preset|shadow|shadow-1","elements":{"link":{"color":{"text":"var:preset|color|grape"}}}},"fontSize":"button","borderColor":"grape"} -->
+<div class="wp-block-button button"><a class="wp-block-button__link has-grape-color has-text-color has-link-color has-border-color has-grape-border-color has-button-font-size has-text-align-center has-custom-font-size wp-element-button" href="http://localhost/portfolio/about/" style="border-width:5px;border-radius:25px;box-shadow:var(--wp--preset--shadow--shadow-1)">Want to Know More?</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></section>
 <!-- /wp:group -->

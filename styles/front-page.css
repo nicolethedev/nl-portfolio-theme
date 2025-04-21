@@ -135,8 +135,8 @@ div .front-project-info-row {
   padding: 1rem 1.5rem;
   border-radius: 8px;
   background: var(--wp--preset--color--soft-blue);
-  color: #1b2323;
-  font-size: 1.05rem;
+  color: var(--wp--preset--color--deep-indigo);
+  font-size: 1.2rem;
   font-weight: 400;
   border: 2px solid transparent;
   text-align: left;
@@ -147,6 +147,7 @@ div .front-project-info-row {
 .tab-button[aria-selected="true"] {
   background: var(--wp--preset--color--grape);
   color: #fff;
+  font-weight: 600;
 }
 
 .tab-button:focus-visible {
