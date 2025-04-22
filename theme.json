@@ -177,7 +177,7 @@
 			},
 			"core/buttons": {
 				"border": {
-					"radius": "25px"
+					"radius": "20px"
 				}
 			},
 			"core/heading": {

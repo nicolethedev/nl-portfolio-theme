@@ -6,9 +6,12 @@
 
 /* Button Style on Hover */
 
-.button a:hover,
-.button a:focus {
-  background-color: var(--wp--preset--color--light-apricot);
+.button a {
+  background-color: var(--wp--preset--color--grape);
+}
+
+.button a:hover {
+  background-color: var(--wp--preset--color--dark-grape);
   transition: all 0.3s ease;
 }
 
