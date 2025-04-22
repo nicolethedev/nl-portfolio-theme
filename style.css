@@ -100,3 +100,38 @@ footer a:hover {
     padding-top: 1rem;
   }
 }
+
+/* Mobile Navigation */
+/* hide on all viewports by default */
+#mobile-nav {
+  display: none;
+}
+
+/* show on mobile only */
+@media (max-width: 767px) {
+  #mobile-nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 96%;
+    z-index: 1000;
+    margin-left: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  /* if you wrapped a desktop header, hide it on mobile */
+  .sticky-nav-bar {
+    display: none;
+  }
+}
+
+/* optional: hide mobile-header on tablet+ */
+@media (min-width: 768px) {
+  #mobile-nav {
+    display: none;
+  }
+  .sticky-nav-bar {
+    display: block;
+  }
+}
