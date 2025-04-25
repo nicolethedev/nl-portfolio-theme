@@ -17,10 +17,10 @@
 <!-- wp:post-terms {"term":"project_category","separator":"","className":"single-project-categories"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:post-featured-image {"aspectRatio":"16/9","className":"header-image","style":{"spacing":{"margin":{"right":"var:preset|spacing|70","left":"var:preset|spacing|70"}},"border":{"radius":"10px"}}} /-->
+<!-- wp:post-featured-image {"aspectRatio":"16/9","className":"header-image","style":{"spacing":{"margin":{"right":"var:preset|spacing|20","left":"var:preset|spacing|20"},"padding":{"right":"0","left":"0"}},"border":{"radius":"5px"}}} /-->
 
-<!-- wp:columns {"className":"project-details","style":{"border":{"radius":"25px"},"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}}},"backgroundColor":"faded-light-apricot","textColor":"deep-indigo"} -->
-<div class="wp-block-columns project-details has-deep-indigo-color has-faded-light-apricot-background-color has-text-color has-background has-link-color" style="border-radius:25px"><!-- wp:column {"verticalAlignment":"top","width":"30%"} -->
+<!-- wp:columns {"className":"project-details","style":{"border":{"radius":"10px"},"elements":{"link":{"color":{"text":"var:preset|color|deep-indigo"}}}},"backgroundColor":"faded-light-apricot","textColor":"deep-indigo"} -->
+<div class="wp-block-columns project-details has-deep-indigo-color has-faded-light-apricot-background-color has-text-color has-background has-link-color" style="border-radius:10px"><!-- wp:column {"verticalAlignment":"top","width":"30%"} -->
 <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:30%"><!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:shortcode -->
 [project_client]
@@ -60,7 +60,7 @@
 <h3 class="wp-block-heading has-h-3-font-size">About the project:</h3>
 <!-- /wp:heading -->
 
-<!-- wp:post-content /--></div>
+<!-- wp:post-content {"style":{"spacing":{"padding":{"right":"0"},"margin":{"right":"0"}}}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
 
@@ -87,12 +87,16 @@
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading {"textAlign":"center","fontSize":"h3"} -->
+<!-- wp:spacer {"height":"59px"} -->
+<div style="height:59px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50);padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"textAlign":"center","fontSize":"h3"} -->
 <h2 class="wp-block-heading has-text-align-center has-h-3-font-size">More Projects</h2>
 <!-- /wp:heading -->
 
-<!-- wp:query {"queryId":22,"query":{"perPage":3,"pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"className":"more-projects"} -->
+<!-- wp:query {"queryId":22,"query":{"perPage":3,"pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"className":"more-projects","layout":{"type":"default"}} -->
 <div class="wp-block-query more-projects"><!-- wp:post-template {"style":{"spacing":{"padding":{"right":"0","left":"0"},"margin":{"right":"var:preset|spacing|80","left":"var:preset|spacing|80"}}},"layout":{"type":"grid","columnCount":3}} -->
 <!-- wp:post-featured-image {"isLink":true} /-->
 
