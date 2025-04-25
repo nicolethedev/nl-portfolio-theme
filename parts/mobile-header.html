@@ -1,57 +1,81 @@
-<!-- wp:group {"tagName":"header","className":"mobile-nav","style":{"spacing":{"blockGap":"var:preset|spacing|70","padding":{"top":"0","bottom":"0","left":"0","right":"0"}},"border":{"radius":"15px"}},"backgroundColor":"faded-indigo","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
+<!-- wp:group {"tagName":"header","className":"mobile-nav","style":{"spacing":{"blockGap":"var:preset|spacing|70","padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"radius":"15px"}},"backgroundColor":"light-dusty-mauve","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 <header
-  class="wp-block-group mobile-nav has-faded-indigo-background-color has-background"
+  id="mobile-nav"
+  class="wp-block-group mobile-nav has-light-dusty-mauve-background-color has-background"
   style="
     border-radius: 15px;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
+    margin-top: var(--wp--preset--spacing--30);
+    margin-bottom: var(--wp--preset--spacing--30);
+    padding-top: var(--wp--preset--spacing--40);
+    padding-right: var(--wp--preset--spacing--50);
+    padding-bottom: var(--wp--preset--spacing--40);
+    padding-left: var(--wp--preset--spacing--50);
   "
 >
-  <!-- wp:image {"width":"99px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
-  <figure class="wp-block-image size-full is-resized" id="projects">
-    <img
-      src="http://localhost/portfolio/wp-content/uploads/2025/04/folder-outline-1.png"
-      alt="Projects Button"
-      class=""
-      style="width: 99px; height: auto"
-    />
+  <!-- wp:image {"lightbox":{"enabled":false},"id":447,"width":"75px","sizeSlug":"full","linkDestination":"custom","className":"is-style-default","style":{"border":{"top":{"width":"0px","style":"none"},"right":{"color":"var:preset|color|dark-grape","width":"0px","style":"none"},"bottom":{"width":"0px","style":"none"},"left":{"width":"0px","style":"none"}},"spacing":{"margin":{"right":"0","left":"0"}}}} -->
+  <figure
+    class="wp-block-image size-full is-resized has-custom-border is-style-default"
+    id="projects"
+    style="margin-right: 0; margin-left: 0"
+  >
+    <a href="nicolelogan.dev/#Projects"
+      ><img
+        src="http://localhost/portfolio/wp-content/uploads/2025/04/folder-outline-1.png"
+        alt="Projects Button"
+        class="wp-image-447"
+        style="
+          border-top-style: none;
+          border-top-width: 0px;
+          border-right-color: var(--wp--preset--color--dark-grape);
+          border-right-style: none;
+          border-right-width: 0px;
+          border-bottom-style: none;
+          border-bottom-width: 0px;
+          border-left-style: none;
+          border-left-width: 0px;
+          width: 75px;
+        "
+    /></a>
   </figure>
   <!-- /wp:image -->
 
-  <!-- wp:image {"width":"90px","sizeSlug":"full","linkDestination":"none"} -->
+  <!-- wp:image {"lightbox":{"enabled":false},"id":448,"width":"75px","sizeSlug":"full","linkDestination":"custom"} -->
   <figure class="wp-block-image size-full is-resized" id="skills">
-    <img
-      src="http://localhost/portfolio/wp-content/uploads/2025/04/web-design-1.png"
-      alt="Skills Button"
-      class=""
-      style="width: 90px"
-    />
+    <a href="nicolelogan.dev/#Skills"
+      ><img
+        src="http://localhost/portfolio/wp-content/uploads/2025/04/web-design-1.png"
+        alt="Skills Button"
+        class="wp-image-448"
+        style="width: 75px"
+    /></a>
   </figure>
   <!-- /wp:image -->
 
-  <!-- wp:site-logo {"width":150} /-->
-
-  <!-- wp:image {"width":"98px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
+  <!-- wp:image {"lightbox":{"enabled":false},"id":449,"width":"75px","sizeSlug":"full","linkDestination":"custom"} -->
   <figure class="wp-block-image size-full is-resized" id="about">
-    <img
-      src="http://localhost/portfolio/wp-content/uploads/2025/04/personal-card-1.png"
-      alt="About Me Button"
-      class=""
-      style="width: 98px; height: auto"
-    />
+    <a href="nicolelogan.dev/#about"
+      ><img
+        src="http://localhost/portfolio/wp-content/uploads/2025/04/personal-card-1.png"
+        alt="About Me Button"
+        class="wp-image-449"
+        style="width: 75px"
+    /></a>
   </figure>
   <!-- /wp:image -->
 
-  <!-- wp:image {"width":"90px","sizeSlug":"full","linkDestination":"none"} -->
-  <figure class="wp-block-image size-full is-resized" id="contact">
-    <img
-      src="http://localhost/portfolio/wp-content/uploads/2025/04/paper-plane-1.png"
-      alt="Contact Button"
-      class=""
-      style="width: 90px"
-    />
+  <!-- wp:image {"lightbox":{"enabled":false},"id":450,"width":"70px","sizeSlug":"full","linkDestination":"custom","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+  <figure
+    class="wp-block-image size-full is-resized"
+    id="contact"
+    style="margin-top: 0; margin-bottom: 0"
+  >
+    <a href="nicolelogan.dev/#contact"
+      ><img
+        src="http://localhost/portfolio/wp-content/uploads/2025/04/paper-plane-1.png"
+        alt="Contact Button"
+        class="wp-image-450"
+        style="width: 70px"
+    /></a>
   </figure>
   <!-- /wp:image -->
 </header>
