@@ -41,6 +41,7 @@ add_action( 'wp_enqueue_scripts', 'nl_enqueue_theme_assets' );
 
 
 // GitHub button shortcode
+
 function nl_github_button_shortcode() {
     $github = get_post_meta( get_the_ID(), '_nl_github_link', true );
     if ( $github ) {
@@ -50,7 +51,9 @@ function nl_github_button_shortcode() {
 }
 add_shortcode( 'github_button', 'nl_github_button_shortcode' );
 
+
 // Live button shortcode
+
 function nl_live_button_shortcode() {
     $live = get_post_meta( get_the_ID(), '_nl_live_link', true );
     if ( $live ) {
@@ -60,21 +63,27 @@ function nl_live_button_shortcode() {
 }
 add_shortcode( 'live_button', 'nl_live_button_shortcode' );
 
+
 // Project Role
+
 function nl_project_role_shortcode() {
     $role = get_post_meta( get_the_ID(), '_nl_project_role', true );
     return $role ? '<p><strong>Role:</strong> ' . esc_html( $role ) . '</p>' : '';
 }
 add_shortcode( 'project_role', 'nl_project_role_shortcode' );
 
+
 // Project Teammates
+
 function nl_project_teammates_shortcode() {
     $team = get_post_meta( get_the_ID(), '_nl_project_teammates', true );
     return $team ? '<p><strong>Teammates:</strong> ' . esc_html( $team ) . '</p>' : '';
 }
 add_shortcode( 'project_teammates', 'nl_project_teammates_shortcode' );
 
+
 // Project Client / Purpose
+
 function nl_project_client_shortcode() {
     if ( is_singular( 'project' ) ) {
         $client = get_post_meta( get_the_ID(), '_nl_project_client', true );
@@ -84,7 +93,9 @@ function nl_project_client_shortcode() {
 }
 add_shortcode( 'project_client', 'nl_project_client_shortcode' );
 
+
 // Project Brief
+
 function nl_project_brief_shortcode() {
     if ( is_singular( 'project' ) ) {
         $brief = get_post_meta( get_the_ID(), '_nl_project_brief', true );
@@ -94,9 +105,9 @@ function nl_project_brief_shortcode() {
 }
 add_shortcode( 'project_brief', 'nl_project_brief_shortcode' );
 
-/**
- * Project Tools shortcode — outputs <span class="nl-term-badge">…</span>
- */
+
+// Project Tools shortcode — outputs <span class="nl-term-badge">…</span>
+
 function nl_project_tools_shortcode() {
     global $post;
     if ( ! $post || 'project' !== $post->post_type ) {
@@ -115,9 +126,9 @@ function nl_project_tools_shortcode() {
 }
 add_shortcode( 'project_tools', 'nl_project_tools_shortcode' );
 
-/**
- * Project Categories shortcode — outputs <span class="nl-term-badge">…</span>
- */
+
+// Project Categories shortcode — outputs <span class="nl-term-badge">…</span>
+
 function nl_project_categories_shortcode() {
     global $post;
     if ( ! $post || 'project' !== $post->post_type ) {
@@ -136,7 +147,9 @@ function nl_project_categories_shortcode() {
 }
 add_shortcode( 'project_categories', 'nl_project_categories_shortcode' );
 
+
 // Exclude current project from “more projects” loops
+
 function nl_exclude_current_project_from_query_loop( $query ) {
     if (
         ! is_admin()
@@ -167,11 +180,8 @@ function nl_enqueue_front_page_assets() {
 add_action( 'wp_enqueue_scripts', 'nl_enqueue_front_page_assets' );
 
 
-/**
- * [list_terms taxonomy="..."] shortcode
- * — outputs <span class="nl-term-badge">…</span> for your project taxonomies,
- *   and <a>…</a> for any others.
- */
+// Shortcode to list terms for a given taxonomy
+
 function nl_list_terms_for_taxonomy_shortcode( $atts ) {
     $atts = shortcode_atts( [
         'taxonomy'   => '',
@@ -179,7 +189,6 @@ function nl_list_terms_for_taxonomy_shortcode( $atts ) {
         'parent'     => '',
     ], $atts, 'list_terms' );
 
-    // invalid or missing taxonomy?
     if ( empty( $atts['taxonomy'] ) ) {
         return '<p><em>Error: no taxonomy defined.</em></p>';
     }
@@ -203,10 +212,8 @@ function nl_list_terms_for_taxonomy_shortcode( $atts ) {
         $name = esc_html( $term->name );
 
         if ( in_array( $tax, [ 'project_tool', 'project_category' ], true ) ) {
-            // badge span for your two project taxonomies
             $out .= '<li><span class="nl-term-badge">' . $name . '</span></li>';
         } else {
-            // normal link for every other taxonomy
             $link  = esc_url( get_term_link( $term ) );
             $out  .= '<li><a href="' . $link . '">' . $name . '</a></li>';
         }
@@ -218,9 +225,8 @@ function nl_list_terms_for_taxonomy_shortcode( $atts ) {
 add_shortcode( 'list_terms', 'nl_list_terms_for_taxonomy_shortcode' );
 
 
-/**
- * 1) Strip <a> tags from get_the_term_list() for your project taxonomies
- */
+// Strip <a> tags from get_the_term_list() for project taxonomies
+
 function nl_strip_term_links( $links ) {
     foreach ( $links as &$html ) {
         $name  = strip_tags( $html );
@@ -231,9 +237,9 @@ function nl_strip_term_links( $links ) {
 add_filter( 'term_links-project_tool',     'nl_strip_term_links' );
 add_filter( 'term_links-project_category', 'nl_strip_term_links' );
 
-/**
- * 2) Swap <a>→<span> in Core Post Terms block for those taxonomies
- */
+
+// Swap <a>→<span> in Core Post Terms block for those taxonomies 
+
 function nl_unanchor_post_terms_block( $block_content, $block ) {
     if ( ! empty( $block['attrs']['taxonomy'] ) && in_array(
         $block['attrs']['taxonomy'],
