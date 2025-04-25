@@ -3,40 +3,38 @@
 require_once get_template_directory() . '/inc/projects-tools.php';
 require_once get_template_directory() . '/inc/experience.php';
 
-
 function nl_enqueue_theme_assets() {
     // Always load Normalize and main theme stylesheet
-    wp_enqueue_style( 'normalize', get_template_directory_uri() . '/styles/normalize.css', array(), null, 'all' );
-    wp_enqueue_style( 'nl-portfolio-theme', get_stylesheet_uri(), array(), null, 'all' );
+    wp_enqueue_style( 'normalize', get_template_directory_uri() . '/styles/normalize.css', [], null, 'all' );
+    wp_enqueue_style( 'nl-portfolio-theme', get_stylesheet_uri(), [], null, 'all' );
 
     // Front page styling
     if ( is_front_page() ) {
-        wp_enqueue_style( 'front-page-style', get_template_directory_uri() . '/styles/front-page.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'front-page-style', get_template_directory_uri() . '/styles/front-page.css', [], '1.0.0', 'all' );
     }
 
     // Archive - Projects
     if ( is_post_type_archive( 'project' ) ) {
-        wp_enqueue_style( 'archive-project-style', get_template_directory_uri() . '/styles/archive-project.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'archive-project-style', get_template_directory_uri() . '/styles/archive-project.css', [], '1.0.0', 'all' );
     }
 
-    // Standard pages (like About, Contact, etc.)
+    // Standard pages (About, Contact, etc.)
     if ( is_page() ) {
-        wp_enqueue_style( 'page-style', get_template_directory_uri() . '/styles/page.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'page-style', get_template_directory_uri() . '/styles/page.css', [], '1.0.0', 'all' );
     }
 
     // Single post or custom post type entries
     if ( is_singular() ) {
-        wp_enqueue_style( 'single-style', get_template_directory_uri() . '/styles/single.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'single-style', get_template_directory_uri() . '/styles/single.css', [], '1.0.0', 'all' );
     }
 
     // 404 page
     if ( is_404() ) {
-        wp_enqueue_style( 'custom-404-style', get_template_directory_uri() . '/styles/404.css', array(), '1.0', 'all' );
-        wp_enqueue_script( 'custom-404-script', get_template_directory_uri() . '/assets/js/404.js', array(), '1.0', true );
-
-        wp_localize_script( 'custom-404-script', 'themeData', array(
-            'themeDirectory' => get_template_directory_uri()
-        ));
+        wp_enqueue_style( 'custom-404-style', get_template_directory_uri() . '/styles/404.css', [], '1.0', 'all' );
+        wp_enqueue_script( 'custom-404-script', get_template_directory_uri() . '/assets/js/404.js', [], '1.0', true );
+        wp_localize_script( 'custom-404-script', 'themeData', [
+            'themeDirectory' => get_template_directory_uri(),
+        ] );
     }
 }
 add_action( 'wp_enqueue_scripts', 'nl_enqueue_theme_assets' );
@@ -62,138 +60,137 @@ function nl_live_button_shortcode() {
 }
 add_shortcode( 'live_button', 'nl_live_button_shortcode' );
 
-// Shortcode for Project Role
+// Project Role
 function nl_project_role_shortcode() {
     $role = get_post_meta( get_the_ID(), '_nl_project_role', true );
-    if ( $role ) {
-        return '<p><strong>Role:</strong> ' . esc_html( $role ) . '</p>';
-    }
-    return '';
+    return $role ? '<p><strong>Role:</strong> ' . esc_html( $role ) . '</p>' : '';
 }
 add_shortcode( 'project_role', 'nl_project_role_shortcode' );
 
-// Shortcode for Project Teammates
+// Project Teammates
 function nl_project_teammates_shortcode() {
-    $teammates = get_post_meta( get_the_ID(), '_nl_project_teammates', true );
-    if ( $teammates ) {
-        return '<p><strong>Teammates:</strong> ' . esc_html( $teammates ) . '</p>';
-    }
-    return '';
+    $team = get_post_meta( get_the_ID(), '_nl_project_teammates', true );
+    return $team ? '<p><strong>Teammates:</strong> ' . esc_html( $team ) . '</p>' : '';
 }
 add_shortcode( 'project_teammates', 'nl_project_teammates_shortcode' );
 
-// Shortcode for Project Client or Purpose
+// Project Client / Purpose
 function nl_project_client_shortcode() {
     if ( is_singular( 'project' ) ) {
         $client = get_post_meta( get_the_ID(), '_nl_project_client', true );
-        if ( $client ) {
-            return '<p><strong>Purpose:</strong> ' . esc_html( $client ) . '</p>';
-        }
+        return $client ? '<p><strong>Purpose:</strong> ' . esc_html( $client ) . '</p>' : '';
     }
     return '';
 }
 add_shortcode( 'project_client', 'nl_project_client_shortcode' );
 
-// Shortcode for Project Brief
+// Project Brief
 function nl_project_brief_shortcode() {
     if ( is_singular( 'project' ) ) {
         $brief = get_post_meta( get_the_ID(), '_nl_project_brief', true );
-        if ( $brief ) {
-            return '' . esc_html( $brief ) . '</p>';
-        }
+        return $brief ? '<p>' . esc_html( $brief ) . '</p>' : '';
     }
     return '';
 }
 add_shortcode( 'project_brief', 'nl_project_brief_shortcode' );
 
-// Shortcode for Project Tools
+/**
+ * Project Tools shortcode — outputs <span class="nl-term-badge">…</span>
+ */
 function nl_project_tools_shortcode() {
     global $post;
-
-    if ( empty( $post ) || $post->post_type !== 'project' ) return '';
-
-    $tools = get_the_terms( $post->ID, 'project_tool' );
-    if ( !$tools || is_wp_error( $tools ) ) return '';
-
-    $output = '<div class="taxonomy-badges project-tools">';
-    foreach ( $tools as $tool ) {
-        $output .= '<span class="taxonomy-badge">' . esc_html( $tool->name ) . '</span> ';
+    if ( ! $post || 'project' !== $post->post_type ) {
+        return '';
     }
-    $output .= '</div>';
-
-    return $output;
+    $tools = get_the_terms( $post->ID, 'project_tool' );
+    if ( ! $tools || is_wp_error( $tools ) ) {
+        return '';
+    }
+    $out = '<div class="taxonomy-badges project-tools">';
+    foreach ( $tools as $tool ) {
+        $out .= '<span class="nl-term-badge">' . esc_html( $tool->name ) . '</span> ';
+    }
+    $out .= '</div>';
+    return $out;
 }
 add_shortcode( 'project_tools', 'nl_project_tools_shortcode' );
 
-// Project Categories Shortcode
+/**
+ * Project Categories shortcode — outputs <span class="nl-term-badge">…</span>
+ */
 function nl_project_categories_shortcode() {
     global $post;
-
-    if ( empty( $post ) || $post->post_type !== 'project' ) return '';
-
-    $categories = get_the_terms( $post->ID, 'project_category' );
-    if ( !$categories || is_wp_error( $categories ) ) return '';
-
-    $output = '<div class="taxonomy-badges project-categories">';
-    foreach ( $categories as $category ) {
-        $output .= '<span class="taxonomy-badge">' . esc_html( $category->name ) . '</span> ';
+    if ( ! $post || 'project' !== $post->post_type ) {
+        return '';
     }
-    $output .= '</div>';
-
-    return $output;
+    $cats = get_the_terms( $post->ID, 'project_category' );
+    if ( ! $cats || is_wp_error( $cats ) ) {
+        return '';
+    }
+    $out = '<div class="taxonomy-badges project-categories">';
+    foreach ( $cats as $cat ) {
+        $out .= '<span class="nl-term-badge">' . esc_html( $cat->name ) . '</span> ';
+    }
+    $out .= '</div>';
+    return $out;
 }
 add_shortcode( 'project_categories', 'nl_project_categories_shortcode' );
 
-// Adding function to prevent currently viewed project from showing in the 'more projects' section
+// Exclude current project from “more projects” loops
 function nl_exclude_current_project_from_query_loop( $query ) {
     if (
-        !is_admin() &&
-        is_singular( 'project' ) &&
-        $query->is_main_query() === false &&
-        isset( $query->query_vars['post_type'] ) &&
-        $query->query_vars['post_type'] === 'project'
+        ! is_admin()
+        && is_singular( 'project' )
+        && ! $query->is_main_query()
+        && isset( $query->query_vars['post_type'] )
+        && 'project' === $query->query_vars['post_type']
     ) {
-        $current_post_id = get_the_ID();
-        $excluded = (array) $query->get( 'post__not_in' );
-        $excluded[] = $current_post_id;
-        $query->set( 'post__not_in', $excluded );
+        $query->set( 'post__not_in', array_merge(
+            (array) $query->get( 'post__not_in', [] ),
+            [ get_the_ID() ]
+        ) );
     }
 }
 add_action( 'pre_get_posts', 'nl_exclude_current_project_from_query_loop' );
 
 function nl_enqueue_front_page_assets() {
     if ( is_front_page() ) {
-        
         wp_enqueue_script(
             'nl-tabs-script',
             get_template_directory_uri() . '/assets/js/tabs.js',
-            array(), 
+            [],
             '1.0',
-            true 
+            true
         );
     }
 }
-add_action('wp_enqueue_scripts', 'nl_enqueue_front_page_assets');
+add_action( 'wp_enqueue_scripts', 'nl_enqueue_front_page_assets' );
 
-// Shortcode to list terms for a given taxonomy
+
+/**
+ * [list_terms taxonomy="..."] shortcode
+ * — outputs <span class="nl-term-badge">…</span> for your project taxonomies,
+ *   and <a>…</a> for any others.
+ */
 function nl_list_terms_for_taxonomy_shortcode( $atts ) {
-    
-    $atts = shortcode_atts( array(
-        'taxonomy'   => '',    
+    $atts = shortcode_atts( [
+        'taxonomy'   => '',
         'hide_empty' => 'false',
-        'parent'     => '',    
-    ), $atts, 'list_terms' );
+        'parent'     => '',
+    ], $atts, 'list_terms' );
 
+    // invalid or missing taxonomy?
     if ( empty( $atts['taxonomy'] ) ) {
         return '<p><em>Error: no taxonomy defined.</em></p>';
     }
 
-    $args = array(
-        'taxonomy'   => sanitize_key( $atts['taxonomy'] ),
+    $tax = sanitize_key( $atts['taxonomy'] );
+    $args = [
+        'taxonomy'   => $tax,
         'hide_empty' => filter_var( $atts['hide_empty'], FILTER_VALIDATE_BOOLEAN ),
-    );
-    if ( $atts['parent'] !== '' ) {
-        $args['parent'] = ( $atts['parent'] === '0' ) ? 0 : absint( $atts['parent'] );
+    ];
+    if ( '' !== $atts['parent'] ) {
+        $args['parent'] = ( '0' === $atts['parent'] ) ? 0 : absint( $atts['parent'] );
     }
 
     $terms = get_terms( $args );
@@ -201,21 +198,54 @@ function nl_list_terms_for_taxonomy_shortcode( $atts ) {
         return '<p>No terms found.</p>';
     }
 
-    $output = '<ul class="nl-term-list">';
+    $out = '<ul class="nl-term-list">';
     foreach ( $terms as $term ) {
-        $output .= sprintf(
-            '<li><a href="%s">%s</a></li>',
-            esc_url( get_term_link( $term ) ),
-            esc_html( $term->name )
-        );
-    }
-    $output .= '</ul>';
+        $name = esc_html( $term->name );
 
-    return $output;
+        if ( in_array( $tax, [ 'project_tool', 'project_category' ], true ) ) {
+            // badge span for your two project taxonomies
+            $out .= '<li><span class="nl-term-badge">' . $name . '</span></li>';
+        } else {
+            // normal link for every other taxonomy
+            $link  = esc_url( get_term_link( $term ) );
+            $out  .= '<li><a href="' . $link . '">' . $name . '</a></li>';
+        }
+    }
+    $out .= '</ul>';
+
+    return $out;
 }
 add_shortcode( 'list_terms', 'nl_list_terms_for_taxonomy_shortcode' );
 
 
+/**
+ * 1) Strip <a> tags from get_the_term_list() for your project taxonomies
+ */
+function nl_strip_term_links( $links ) {
+    foreach ( $links as &$html ) {
+        $name  = strip_tags( $html );
+        $html  = '<span class="nl-term-badge">' . esc_html( $name ) . '</span>';
+    }
+    return $links;
+}
+add_filter( 'term_links-project_tool',     'nl_strip_term_links' );
+add_filter( 'term_links-project_category', 'nl_strip_term_links' );
 
-
-
+/**
+ * 2) Swap <a>→<span> in Core Post Terms block for those taxonomies
+ */
+function nl_unanchor_post_terms_block( $block_content, $block ) {
+    if ( ! empty( $block['attrs']['taxonomy'] ) && in_array(
+        $block['attrs']['taxonomy'],
+        [ 'project_tool', 'project_category' ],
+        true
+    ) ) {
+        $block_content = preg_replace(
+            '#<a[^>]*>(.*?)</a>#i',
+            '<span class="nl-term-badge">$1</span>',
+            $block_content
+        );
+    }
+    return $block_content;
+}
+add_filter( 'render_block_core/post-terms', 'nl_unanchor_post_terms_block', 10, 2 );

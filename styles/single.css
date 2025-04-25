@@ -12,7 +12,7 @@
 
 /* Category Badges in Title Row */
 
-.single-project-categories a {
+.taxonomy-project_category .nl-term-badge {
   text-decoration: none;
   pointer-events: none;
   border: 1px solid var(--wp--preset--color--soft-blue);
@@ -22,13 +22,19 @@
   color: white;
   text-transform: uppercase;
   font-size: medium;
+  margin: 0 0.5em 0.5em 0;
+  display: inline-block;
+  white-space: nowrap;
+}
+.wp-block-post-terms__separator {
+  display: none;
 }
 
-@media (max-width: 47.5rem) {
+@media (max-width: 51.875rem) {
   .has-h-1-font-size {
     font-size: 2rem !important;
   }
-  .single-project-categories a {
+  .taxonomy-project_category .nl-term-badge {
     font-size: 0.8rem;
   }
 }
@@ -37,16 +43,23 @@
   .has-h-1-font-size {
     font-size: 1.5rem !important;
   }
-  .single-project-categories a {
+  .taxonomy-project_category .nl-term-badge {
     display: none;
   }
 }
 
-/* Project Image */
+/* Project Featured Image on Mobile */
+@media (max-width: 64.375rem) {
+}
 
 /* Project Details Bar (Under Featured Image) */
 .project-details {
-  margin: 1rem 3rem;
+  margin: 1rem 1rem;
+}
+
+.project-buttons {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .wp-element-button-github {
@@ -84,13 +97,9 @@
   }
 }
 
-/* Badges */
+/* Tool Badges */
 
-.taxonomy-badges {
-  margin: 1rem 0;
-}
-
-.taxonomy-badge {
+.taxonomy-badges .nl-term-badge {
   display: inline-block;
   padding: 0.25em 0.75em;
   margin: 0 0.5em 0.5em 0;
