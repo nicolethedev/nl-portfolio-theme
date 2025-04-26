@@ -1,12 +1,10 @@
 body {
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100vh;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
@@ -46,5 +44,49 @@ footer {
   .falling-logo {
     transform: translateX(-50%) scale(0.3);
     animation: fallAnimationMobile 3s ease-in-out forwards;
+  }
+}
+
+/* Mobile Navigation */
+/* hide on all viewports by default */
+#mobile-nav {
+  display: none;
+}
+
+.mobile-nav-icon {
+  display: none;
+}
+
+/* show on mobile only */
+@media (max-width: 28.125rem) {
+  #mobile-nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 96%;
+    z-index: 1000;
+    margin-left: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  /* if you wrapped a desktop header, hide it on mobile */
+  .sticky-nav-bar,
+  .custom-nav {
+    display: none;
+  }
+
+  .mobile-nav-icon {
+    display: block;
+  }
+}
+
+@media (min-width: 28.1875rem) {
+  #mobile-nav {
+    display: none;
+  }
+  .sticky-nav-bar,
+  .custom-nav {
+    display: block;
   }
 }
