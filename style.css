@@ -27,8 +27,8 @@ body {
     rgba(222, 174, 212, 0.8),
     rgba(255, 153, 70, 0.8)
   );
-  background-size: 300% 300%;
-  animation: BackgroundGradient 40s ease infinite;
+  background-size: 200% 200%;
+  animation: BackgroundGradient 30s ease infinite;
 }
 
 @keyframes BackgroundGradient {
@@ -83,6 +83,10 @@ footer a:hover {
 }
 
 @media (max-width: 48rem) {
+  footer {
+    margin-bottom: 4rem;
+  }
+
   footer .connect-stack,
   footer .contact-stack {
     align-items: center;
@@ -130,7 +134,6 @@ footer a:hover {
   }
 }
 
-/* optional: hide mobile-header on tablet+ */
 @media (min-width: 28.1875rem) {
   #mobile-nav {
     display: none;

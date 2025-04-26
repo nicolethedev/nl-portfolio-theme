@@ -77,7 +77,7 @@ add_shortcode( 'project_role', 'nl_project_role_shortcode' );
 
 function nl_project_teammates_shortcode() {
     $team = get_post_meta( get_the_ID(), '_nl_project_teammates', true );
-    return $team ? '<p><strong>Teammates:</strong> ' . esc_html( $team ) . '</p>' : '';
+    return $team ? '<p><strong>Team:</strong> ' . esc_html( $team ) . '</p>' : '';
 }
 add_shortcode( 'project_teammates', 'nl_project_teammates_shortcode' );
 

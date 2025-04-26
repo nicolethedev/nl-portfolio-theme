@@ -5,7 +5,6 @@
 }
 
 /* Button Style on Hover */
-
 .button a {
   background-color: var(--wp--preset--color--grape);
 }
@@ -15,22 +14,23 @@
   transition: all 0.3s ease;
 }
 
-/* Intro Text */
+/* Intro Text - Adjusted for mobile screens */
 @media (max-width: 36.5625rem) {
   .wp-site-blocks .hero-intro {
-    font-size: 2.5rem !important;
-    line-height: 1.5;
+    font-size: 2.8rem !important;
+    padding-bottom: 0.5rem !important;
   }
-  .wp-site-blocks .hero-intro:last-of-type {
-    font-size: 2rem !important;
-    line-height: 1.5;
+
+  #intro-two {
+    font-size: 2.05rem !important;
   }
-  .wp-block-group .hero-tagline {
-    font-size: 1.1rem;
+
+  .hero-tagline {
+    font-size: 1.5rem !important;
   }
 }
-/* Front Page Project section */
 
+/* Front Page Project section */
 .projects .featured-projects a:hover {
   text-decoration: underline;
   text-decoration-style: wavy;
@@ -41,19 +41,11 @@
 section .featured-projects {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-div .front-project-info-row {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
 }
 
 /* Stack them on smaller screens */
-
-@media (max-width: 750px) {
+@media (max-width: 46.875rem) {
   section .featured-projects,
   div .front-project-info-row {
     flex-direction: column;
@@ -66,23 +58,6 @@ div .front-project-info-row {
   }
 }
 
-.front-project-categories span {
-  text-decoration: none;
-  pointer-events: none;
-  border: 1px solid var(--wp--preset--color--grape);
-  border-radius: 10px;
-  padding: 0.25em 0.75em;
-  background-color: var(--wp--preset--color--grape);
-  color: var(--wp--preset--color--light-apricot);
-  text-transform: uppercase;
-  font-size: medium;
-  margin: 0.3rem;
-}
-
-.wp-block-post-terms__separator {
-  display: none;
-}
-
 @media (max-width: 76.25rem) {
   .front-project-info-row {
     flex-direction: column;
@@ -93,38 +68,14 @@ div .front-project-info-row {
     order: 2;
   }
 
-  .front-project-categories {
+  .nl-term-badge {
     padding-top: 0.5rem;
-  }
-
-  .front-project-categories span {
     font-size: 0.8rem;
     order: 1;
   }
 }
 
-/* Mobile Stying for About Section on Front Page */
-
-.about-section img {
-  max-width: 25rem;
-  padding-left: 2rem;
-}
-
-@media (max-width: 64.375rem) {
-  .about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-section img {
-    max-width: 20rem;
-    padding: 0;
-  }
-}
-
 /* Skills Tabs */
-
 /* --- Tabs Container --- */
 .skills-tabs {
   display: flex;
@@ -145,12 +96,12 @@ div .front-project-info-row {
   width: 100%;
   box-sizing: border-box;
   padding: 1rem 1.5rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: #ffffff80;
   color: #14192e;
   font-size: 1.2rem;
   font-weight: 400;
-  border: 2px solid transparent;
+  border: 0.125rem solid transparent;
   text-align: left;
   transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
@@ -163,11 +114,11 @@ div .front-project-info-row {
 }
 
 .tab-button:focus-visible {
-  outline: 2px solid var(--wp--preset--color--soft-blue);
+  outline: 0.125rem solid var(--wp--preset--color--soft-blue);
 }
 
 /* --- Responsive: Tabs remain vertical on mobile --- */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .skills-tabs {
     flex-direction: column;
     gap: 0.5rem;
@@ -183,9 +134,9 @@ div .front-project-info-row {
 
 /* --- Tab Content Groups --- */
 .tab-content {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   padding: 2rem;
-  min-height: 220px;
+  min-height: 13.75rem;
   margin: 0;
   position: relative;
   z-index: 0;
@@ -204,7 +155,7 @@ div .front-project-info-row {
 @keyframes fadeInTab {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(0.75rem);
   }
   to {
     opacity: 1;
@@ -213,10 +164,10 @@ div .front-project-info-row {
 }
 
 /* --- Responsive: Content area on mobile --- */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .tab-content {
     padding: 1rem;
-    min-height: 120px;
+    min-height: 7.5rem;
   }
 }
 
@@ -239,7 +190,7 @@ div .front-project-info-row {
 .nl-term-badge {
   text-decoration: none;
   pointer-events: none;
-  border: 1px solid var(--wp--preset--color--deep-indigo);
+  border: 0.0625rem solid var(--wp--preset--color--deep-indigo);
   border-radius: 0.5rem;
   padding: 0.25em 0.75em;
   background-color: var(--wp--preset--color--deep-indigo);
@@ -256,7 +207,7 @@ div .front-project-info-row {
 
 /* About Section */
 .about-content {
-  max-width: 800px;
+  max-width: 50rem;
   justify-content: center;
   margin: 0 auto;
   padding-bottom: 2rem;
@@ -269,5 +220,5 @@ div .front-project-info-row {
 .about-content img:hover {
   transform: scale(1.05);
   transition: all 0.3s ease;
-  filter: drop-shadow(0px 0px 5px var(--wp--preset--color--grape));
+  filter: drop-shadow(0px 0px 0.3125rem var(--wp--preset--color--grape));
 }
