@@ -1,0 +1,98 @@
+/* Mobile Navigation */
+/* hide on all viewports by default */
+#mobile-nav {
+  display: none;
+}
+
+.mobile-nav-icon {
+  display: none;
+}
+
+/* show on mobile only */
+@media (max-width: 28.125rem) {
+  #mobile-nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 96%;
+    z-index: 1000;
+    margin-left: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  /* if you wrapped a desktop header, hide it on mobile */
+  .sticky-nav-bar,
+  .custom-nav {
+    display: none;
+  }
+
+  .mobile-nav-icon {
+    display: block;
+  }
+}
+
+@media (min-width: 28.1875rem) {
+  #mobile-nav {
+    display: none;
+  }
+  .sticky-nav-bar,
+  .custom-nav {
+    display: block;
+  }
+}
+
+.taxonomy-project_category .nl-term-badge {
+  border: 1px solid var(--wp--preset--color--soft-blue);
+  border-radius: 0.4375rem;
+  padding: 0.25em 0.75em;
+  background-color: var(--wp--preset--color--soft-blue);
+  color: white;
+  text-transform: uppercase;
+  font-size: medium;
+  margin: 0 0.25em 0.25em 0;
+  display: inline-block;
+  white-space: nowrap;
+}
+.wp-block-post-terms__separator {
+  display: none;
+}
+
+section .projects {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+}
+
+/* Stack them on smaller screens */
+@media (max-width: 46.875rem) {
+  section .featured-projects,
+  div .project-info-row {
+    padding-top: 0.1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  div .project-categories {
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 76.25rem) {
+  .project-info-row {
+    /* padding-top: 0.4rem; */
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-title {
+    order: 2;
+  }
+
+  .project-categories .nl-term-badge {
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    order: 1;
+  }
+}

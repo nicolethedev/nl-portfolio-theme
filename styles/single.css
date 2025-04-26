@@ -20,7 +20,7 @@
   color: white;
   text-transform: uppercase;
   font-size: medium;
-  margin: 0 0.5em 0.5em 0;
+  margin: 0 0.25em 0.25em 0;
   display: inline-block;
   white-space: nowrap;
 }
@@ -37,8 +37,13 @@
   .has-h-1-font-size {
     font-size: 2rem !important;
   }
+
   .taxonomy-project_category .nl-term-badge {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .single-project-categories {
+    width: 100%;
   }
 }
 
@@ -46,19 +51,16 @@
   .has-h-1-font-size {
     font-size: 2rem !important;
   }
-  .taxonomy-project_category {
-    padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-}
 
-/* Project Featured Image on Mobile */
-@media (max-width: 64.375rem) {
+  .project-details {
+    padding: 1rem 0.75rem;
+    margin: 0;
+  }
 }
 
 /* Project Details Bar (Under Featured Image) */
 .project-details {
-  margin: 1rem 1rem;
+  margin: 0.5rem 0.5rem;
 }
 
 .project-buttons {
@@ -160,4 +162,9 @@
   .custom-nav {
     display: block;
   }
+}
+
+/* More Projects Section */
+.more-projects {
+  margin: 0 1rem;
 }
