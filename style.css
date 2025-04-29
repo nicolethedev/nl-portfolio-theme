@@ -160,9 +160,9 @@ footer a:hover {
     text-align: center;
   }
 
-  .mobile-nav-icon #weather-widget .weather-icon {
-    width: 1rem;
-    height: 1rem;
+  #weather-widget-mobile .weather-icon {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
