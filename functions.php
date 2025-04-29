@@ -1,9 +1,5 @@
 <?php
 
-if ( ! defined( 'OWM_API_KEY' ) ) {
-    define( 'OWM_API_KEY', 'bd3bb390c15a6ab7cc3e3707abfe1d7e' );
-  }
-  
 
 require_once get_template_directory() . '/inc/projects-tools.php';
 require_once get_template_directory() . '/inc/experience.php';
