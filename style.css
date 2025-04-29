@@ -56,91 +56,116 @@ body {
   text-decoration-thickness: 0.1rem;
 }
 
-/* Footer Styling for Desktop & Mobile */
-
-footer {
-  margin: 0;
+.custom-nav #weather-widget {
+  float: inline-end;
 }
 
-footer .is-style-default {
-  margin: 0 1.25rem;
-  opacity: 50%;
-}
+#weather-widget .weather-icon {
+  /* sizing */
+  width: 3rem;
+  height: 3rem;
 
-footer .copyright-privacy,
-.headers {
-  opacity: 80%;
-}
+  /* spacing */
+  margin-left: 0.3em;
+  vertical-align: middle;
 
-footer a {
-  text-decoration: none;
-}
+  /* Footer Styling for Desktop & Mobile */
 
-footer a:hover {
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: rgb(222, 174, 212, 0.8);
-}
-
-@media (max-width: 48rem) {
   footer {
-    margin-bottom: 4rem;
+    margin: 0;
   }
 
-  footer .connect-stack,
-  footer .contact-stack {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0 auto;
+  footer .is-style-default {
+    margin: 0 1.25rem;
+    opacity: 50%;
   }
 
-  footer .copyright-privacy {
-    justify-content: center;
-    padding-top: 1rem;
-  }
-}
-
-/* Mobile Navigation */
-/* hide on all viewports by default */
-#mobile-nav {
-  display: none;
-}
-
-.mobile-nav-icon {
-  display: none;
-}
-
-/* show on mobile only */
-@media (max-width: 28.125rem) {
-  #mobile-nav {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 96%;
-    z-index: 1000;
-    margin-left: 0.5rem;
-    margin-bottom: 0.75rem;
+  footer .copyright-privacy,
+  .headers {
     opacity: 80%;
   }
 
-  /* if you wrapped a desktop header, hide it on mobile */
-  .sticky-nav-bar {
-    display: none;
+  footer a {
+    text-decoration: none;
   }
 
-  .mobile-nav-icon {
-    display: block;
+  footer a:hover {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgb(222, 174, 212, 0.8);
   }
-}
 
-@media (min-width: 28.1875rem) {
+  @media (max-width: 48rem) {
+    footer {
+      margin-bottom: 4rem;
+    }
+
+    footer .connect-stack,
+    footer .contact-stack {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    footer .copyright-privacy {
+      justify-content: center;
+      padding-top: 1rem;
+    }
+  }
+
+  /* Mobile Navigation */
+  /* hide on all viewports by default */
   #mobile-nav {
     display: none;
   }
-  .sticky-nav-bar {
-    display: block;
+
+  .mobile-top-nav {
+    display: none;
+  }
+
+  /* show on mobile only */
+  @media (max-width: 28.125rem) {
+    #mobile-nav {
+      display: flex;
+      flex-direction: row;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 96%;
+      z-index: 1000;
+      margin-left: 0.5rem;
+      margin-bottom: 0.75rem;
+      opacity: 80%;
+    }
+
+    /* if you wrapped a desktop header, hide it on mobile */
+    .sticky-nav-bar {
+      display: none;
+    }
+
+    .mobile-top-nav {
+      display: block;
+    }
+
+    .mobile-nav-icon #weather-widget {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .mobile-nav-icon #weather-widget .weather-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  @media (min-width: 28.1875rem) {
+    #mobile-nav {
+      display: none;
+    }
+    .sticky-nav-bar {
+      display: block;
+    }
   }
 }

@@ -1,5 +1,10 @@
 <?php
 
+if ( ! defined( 'OWM_API_KEY' ) ) {
+    define( 'OWM_API_KEY', 'bd3bb390c15a6ab7cc3e3707abfe1d7e' );
+  }
+  
+
 require_once get_template_directory() . '/inc/projects-tools.php';
 require_once get_template_directory() . '/inc/experience.php';
 
@@ -255,3 +260,83 @@ function nl_unanchor_post_terms_block( $block_content, $block ) {
     return $block_content;
 }
 add_filter( 'render_block_core/post-terms', 'nl_unanchor_post_terms_block', 10, 2 );
+
+// Weather widget using API from OpenWeatherMap
+
+// 1. Enqueue the weather‐widget JS and pass it the REST endpoint.
+function nl_enqueue_weather_widget() {
+    wp_enqueue_script(
+        'weather-widget',
+        get_stylesheet_directory_uri() . '/assets/js/weather-widget.js',
+        [],
+        '1.0',
+        true
+    );
+    // Relative URL for same-origin fetch
+    wp_localize_script( 'weather-widget', 'WeatherConfig', [
+        'endpoint' => '/wp-json/weather/v1/current', // we'll add params in JS
+    ] );
+}
+add_action( 'wp_enqueue_scripts', 'nl_enqueue_weather_widget' );
+
+// 2. Register a custom REST route under /wp-json/weather/v1/current
+function nl_register_weather_rest_route() {
+    register_rest_route( 'weather/v1', '/current', [
+        'methods'             => 'GET',
+        'callback'            => 'nl_get_current_weather',
+        'permission_callback' => '__return_true',
+    ] );
+}
+add_action( 'rest_api_init', 'nl_register_weather_rest_route' );
+
+/**
+ * 3. Fetch, cache, and return current weather from OpenWeatherMap.
+ *
+ * Accepts either lat+lon or city param.
+ *
+ * @param WP_REST_Request $request
+ * @return WP_REST_Response|WP_Error
+ */
+function nl_get_current_weather( WP_REST_Request $request ) {
+    $lat = $request->get_param( 'lat' );
+    $lon = $request->get_param( 'lon' );
+    $city = sanitize_text_field( $request->get_param( 'city' ) );
+
+    // Build query args
+    if ( $lat && $lon ) {
+        $args = [
+            'lat'   => floatval( $lat ),
+            'lon'   => floatval( $lon ),
+            'units' => 'metric',
+            'appid' => OWM_API_KEY,
+        ];
+        $cache_key = "owm_{$lat}_{$lon}";
+    } else {
+        $city = $city ?: 'Vancouver,CA';
+        $args = [
+            'q'     => $city,
+            'units' => 'metric',
+            'appid' => OWM_API_KEY,
+        ];
+        $cache_key = 'owm_' . md5( $city );
+    }
+
+    // Try cache first
+    if ( false === ( $data = get_transient( $cache_key ) ) ) {
+        $url = add_query_arg( $args, 'https://api.openweathermap.org/data/2.5/weather' );
+        $resp = wp_remote_get( $url );
+
+        if ( is_wp_error( $resp ) || 200 !== wp_remote_retrieve_response_code( $resp ) ) {
+            return new WP_Error( 'weather_fetch_failed', 'Could not retrieve weather.', [ 'status' => 500 ] );
+        }
+
+        $data = json_decode( wp_remote_retrieve_body( $resp ), true );
+        set_transient( $cache_key, $data, 10 * MINUTE_IN_SECONDS );
+    }
+
+    return rest_ensure_response( [
+        'temp'        => $data['main']['temp'],
+        'icon'        => $data['weather'][0]['icon'],
+        'description' => $data['weather'][0]['description'],
+    ] );
+}
