@@ -1,10 +1,15 @@
 <?php
 
+// Includes
 require_once get_template_directory() . '/inc/projects-tools.php';
 require_once get_template_directory() . '/inc/experience.php';
 
+
+// Enqueue Styles and Scripts
+
+/* Enqueue theme CSS and JS assets.*/
 function nl_enqueue_theme_assets() {
-    // Always load Normalize and main theme stylesheet
+    // Normalize and main stylesheet
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/styles/normalize.css', [], null, 'all' );
     wp_enqueue_style( 'nl-portfolio-theme', get_stylesheet_uri(), [], null, 'all' );
 
@@ -39,9 +44,39 @@ function nl_enqueue_theme_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'nl_enqueue_theme_assets' );
 
+/* Enqueue front page JS (tabs)*/
+function nl_enqueue_front_page_assets() {
+    if ( is_front_page() ) {
+        wp_enqueue_script(
+            'nl-tabs-script',
+            get_template_directory_uri() . '/assets/js/tabs.js',
+            [],
+            '1.0',
+            true
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'nl_enqueue_front_page_assets' );
 
-// GitHub button shortcode
+/* Enqueue weather widget JS and pass REST endpoint.*/
+function nl_enqueue_weather_widget() {
+    wp_enqueue_script(
+        'weather-widget',
+        get_stylesheet_directory_uri() . '/assets/js/weather-widget.js',
+        [],
+        '1.0',
+        true
+    );
+    wp_localize_script( 'weather-widget', 'WeatherConfig', [
+        'endpoint' => '/wp-json/weather/v1/current',
+    ] );
+}
+add_action( 'wp_enqueue_scripts', 'nl_enqueue_weather_widget' );
 
+
+// Shortcodes
+
+/* Github button shortcode.*/
 function nl_github_button_shortcode() {
     $github = get_post_meta( get_the_ID(), '_nl_github_link', true );
     if ( $github ) {
@@ -51,9 +86,7 @@ function nl_github_button_shortcode() {
 }
 add_shortcode( 'github_button', 'nl_github_button_shortcode' );
 
-
-// Live button shortcode
-
+/*Live website button shortcode*/
 function nl_live_button_shortcode() {
     $live = get_post_meta( get_the_ID(), '_nl_live_link', true );
     if ( $live ) {
@@ -63,27 +96,21 @@ function nl_live_button_shortcode() {
 }
 add_shortcode( 'live_button', 'nl_live_button_shortcode' );
 
-
-// Project Role
-
+/* Project role shortcode*/
 function nl_project_role_shortcode() {
     $role = get_post_meta( get_the_ID(), '_nl_project_role', true );
     return $role ? '<p><strong>Role:</strong> ' . esc_html( $role ) . '</p>' : '';
 }
 add_shortcode( 'project_role', 'nl_project_role_shortcode' );
 
-
-// Project Teammates
-
+/* Project teammates shortcode.*/
 function nl_project_teammates_shortcode() {
     $team = get_post_meta( get_the_ID(), '_nl_project_teammates', true );
     return $team ? '<p><strong>Team:</strong> ' . esc_html( $team ) . '</p>' : '';
 }
 add_shortcode( 'project_teammates', 'nl_project_teammates_shortcode' );
 
-
-// Project Client / Purpose
-
+/* Project client/purpose shortcode.*/
 function nl_project_client_shortcode() {
     if ( is_singular( 'project' ) ) {
         $client = get_post_meta( get_the_ID(), '_nl_project_client', true );
@@ -93,9 +120,7 @@ function nl_project_client_shortcode() {
 }
 add_shortcode( 'project_client', 'nl_project_client_shortcode' );
 
-
-// Project Brief
-
+/* Project brief shortcode*/
 function nl_project_brief_shortcode() {
     if ( is_singular( 'project' ) ) {
         $brief = get_post_meta( get_the_ID(), '_nl_project_brief', true );
@@ -105,9 +130,7 @@ function nl_project_brief_shortcode() {
 }
 add_shortcode( 'project_brief', 'nl_project_brief_shortcode' );
 
-
-// Project Tools shortcode — outputs <span class="nl-term-badge">…</span>
-
+/* Project tools shortcode - outputs <span class="nl-term-badge">…</span>*/
 function nl_project_tools_shortcode() {
     global $post;
     if ( ! $post || 'project' !== $post->post_type ) {
@@ -126,9 +149,7 @@ function nl_project_tools_shortcode() {
 }
 add_shortcode( 'project_tools', 'nl_project_tools_shortcode' );
 
-
-// Project Categories shortcode — outputs <span class="nl-term-badge">…</span>
-
+/* Project categories shortcode - outputs <span class="nl-term-badge">…</span>*/
 function nl_project_categories_shortcode() {
     global $post;
     if ( ! $post || 'project' !== $post->post_type ) {
@@ -147,41 +168,7 @@ function nl_project_categories_shortcode() {
 }
 add_shortcode( 'project_categories', 'nl_project_categories_shortcode' );
 
-
-// Exclude current project from “more projects” loops
-
-function nl_exclude_current_project_from_query_loop( $query ) {
-    if (
-        ! is_admin()
-        && is_singular( 'project' )
-        && ! $query->is_main_query()
-        && isset( $query->query_vars['post_type'] )
-        && 'project' === $query->query_vars['post_type']
-    ) {
-        $query->set( 'post__not_in', array_merge(
-            (array) $query->get( 'post__not_in', [] ),
-            [ get_the_ID() ]
-        ) );
-    }
-}
-add_action( 'pre_get_posts', 'nl_exclude_current_project_from_query_loop' );
-
-function nl_enqueue_front_page_assets() {
-    if ( is_front_page() ) {
-        wp_enqueue_script(
-            'nl-tabs-script',
-            get_template_directory_uri() . '/assets/js/tabs.js',
-            [],
-            '1.0',
-            true
-        );
-    }
-}
-add_action( 'wp_enqueue_scripts', 'nl_enqueue_front_page_assets' );
-
-
-// Shortcode to list terms for a given taxonomy
-
+/* List terms for a given taxonomy.*/
 function nl_list_terms_for_taxonomy_shortcode( $atts ) {
     $atts = shortcode_atts( [
         'taxonomy'   => '',
@@ -210,7 +197,6 @@ function nl_list_terms_for_taxonomy_shortcode( $atts ) {
     $out = '<ul class="nl-term-list">';
     foreach ( $terms as $term ) {
         $name = esc_html( $term->name );
-
         if ( in_array( $tax, [ 'project_tool', 'project_category' ], true ) ) {
             $out .= '<li><span class="nl-term-badge">' . $name . '</span></li>';
         } else {
@@ -225,8 +211,9 @@ function nl_list_terms_for_taxonomy_shortcode( $atts ) {
 add_shortcode( 'list_terms', 'nl_list_terms_for_taxonomy_shortcode' );
 
 
-// Strip <a> tags from get_the_term_list() for project taxonomies
+// Filters
 
+/* Strip <a> tags from get_the_term_list() for project taxonomies */
 function nl_strip_term_links( $links ) {
     foreach ( $links as &$html ) {
         $name  = strip_tags( $html );
@@ -234,12 +221,10 @@ function nl_strip_term_links( $links ) {
     }
     return $links;
 }
-add_filter( 'term_links-project_tool',     'nl_strip_term_links' );
+add_filter( 'term_links-project_tool', 'nl_strip_term_links' );
 add_filter( 'term_links-project_category', 'nl_strip_term_links' );
 
-
-// Swap <a>→<span> in Core Post Terms block for those taxonomies 
-
+/* Swap <a>→<span> in Core Post Terms block for those taxonomies.*/
 function nl_unanchor_post_terms_block( $block_content, $block ) {
     if ( ! empty( $block['attrs']['taxonomy'] ) && in_array(
         $block['attrs']['taxonomy'],
@@ -256,25 +241,30 @@ function nl_unanchor_post_terms_block( $block_content, $block ) {
 }
 add_filter( 'render_block_core/post-terms', 'nl_unanchor_post_terms_block', 10, 2 );
 
-// Weather widget using API from OpenWeatherMap
+// Query Modifications
 
-// 1. Enqueue the weather‐widget JS and pass it the REST endpoint.
-function nl_enqueue_weather_widget() {
-    wp_enqueue_script(
-        'weather-widget',
-        get_stylesheet_directory_uri() . '/assets/js/weather-widget.js',
-        [],
-        '1.0',
-        true
-    );
-    // Relative URL for same-origin fetch
-    wp_localize_script( 'weather-widget', 'WeatherConfig', [
-        'endpoint' => '/wp-json/weather/v1/current', // we'll add params in JS
-    ] );
+/* Exclude current project from “more projects” loops.*/
+function nl_exclude_current_project_from_query_loop( $query ) {
+    if (
+        ! is_admin()
+        && is_singular( 'project' )
+        && ! $query->is_main_query()
+        && isset( $query->query_vars['post_type'] )
+        && 'project' === $query->query_vars['post_type']
+    ) {
+        $query->set( 'post__not_in', array_merge(
+            (array) $query->get( 'post__not_in', [] ),
+            [ get_the_ID() ]
+        ) );
+    }
 }
-add_action( 'wp_enqueue_scripts', 'nl_enqueue_weather_widget' );
+add_action( 'pre_get_posts', 'nl_exclude_current_project_from_query_loop' );
 
-// 2. Register a custom REST route under /wp-json/weather/v1/current
+
+// REST API: Weather Widget
+
+
+/* Register a custom REST route under /wp-json/weather/v1/current. */
 function nl_register_weather_rest_route() {
     register_rest_route( 'weather/v1', '/current', [
         'methods'             => 'GET',
@@ -285,7 +275,7 @@ function nl_register_weather_rest_route() {
 add_action( 'rest_api_init', 'nl_register_weather_rest_route' );
 
 /**
- * 3. Fetch, cache, and return current weather from OpenWeatherMap.
+ * Fetch, cache, and return current weather from OpenWeatherMap.
  *
  * Accepts either lat+lon or city param.
  *
@@ -324,7 +314,6 @@ function nl_get_current_weather( WP_REST_Request $request ) {
         if ( is_wp_error( $resp ) || 200 !== wp_remote_retrieve_response_code( $resp ) ) {
             return new WP_Error( 'weather_fetch_failed', 'Could not retrieve weather.', [ 'status' => 500 ] );
         }
-
         $data = json_decode( wp_remote_retrieve_body( $resp ), true );
         set_transient( $cache_key, $data, 10 * MINUTE_IN_SECONDS );
     }
@@ -335,3 +324,4 @@ function nl_get_current_weather( WP_REST_Request $request ) {
         'description' => $data['weather'][0]['description'],
     ] );
 }
+add_action( 'rest_api_init', 'nl_register_weather_rest_route' );
