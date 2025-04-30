@@ -1,3 +1,34 @@
+/* Focus styles for all interactive elements */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid var(--wp--preset--color--soft-blue);
+  outline-offset: 2px;
+}
+
+/* Focus for back button */
+.backbutton:focus {
+  outline: 3px solid var(--wp--preset--color--soft-blue);
+  outline-offset: 2px;
+}
+
+/* Focus for project buttons */
+.wp-element-button-github:focus,
+.wp-element-button-live:focus {
+  outline: 3px solid var(--wp--preset--color--soft-blue);
+  outline-offset: 2px;
+  background-color: var(--wp--preset--color--deep-indigo);
+  color: white;
+}
+
+/* Add pointer cursor for button-like links */
+.wp-element-button-github,
+.wp-element-button-live,
+.backbutton {
+  cursor: pointer;
+}
+
 .skill-cards {
   margin: 0 1.25rem;
 }
