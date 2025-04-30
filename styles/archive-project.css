@@ -21,7 +21,7 @@
     margin-left: 0.5rem;
     margin-bottom: 0.75rem;
   }
-  /* if you wrapped a desktop header, hide it on mobile */
+  /* if wrapped desktop header, hide it on mobile */
   .sticky-nav-bar,
   .custom-nav {
     display: none;
@@ -81,7 +81,6 @@ section .projects {
 
 @media (max-width: 76.25rem) {
   .project-info-row {
-    /* padding-top: 0.4rem; */
     flex-direction: column;
     align-items: flex-start;
   }
