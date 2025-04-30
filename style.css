@@ -15,6 +15,11 @@ Tags:
 */
 
 /* Universal styling across all pages */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -41,6 +46,12 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* Global column gap for Gutenberg columns */
+.wp-block-columns {
+  gap: 2.5rem;
+  align-items: flex-start;
 }
 
 /* === Accessibility Improvements === */

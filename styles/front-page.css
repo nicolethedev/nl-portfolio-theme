@@ -1,17 +1,20 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* Button Style on Hover */
 .button a {
   background-color: var(--wp--preset--color--grape);
+  transition: background 0.3s ease; /* moved transition here for smoother effect */
 }
 
-.button a:hover {
+/* Accessible focus for buttons/links */
+.button a:focus {
+  outline: 2px solid var(--wp--preset--color--soft-blue);
+  outline-offset: 2px;
   background-color: var(--wp--preset--color--dark-grape);
-  transition: all 0.3s ease;
+}
+
+/* Button hover/focus state */
+.button a:hover,
+.button a:focus {
+  background-color: var(--wp--preset--color--dark-grape);
 }
 
 /* Intro Text - Adjusted for mobile screens */
@@ -36,7 +39,8 @@
 }
 
 /* Front Page Project section */
-.projects .featured-projects a:hover {
+.projects .featured-projects a:hover,
+.projects .featured-projects a:focus {
   text-decoration: underline;
   text-decoration-style: wavy;
   text-decoration-thickness: 0.1rem;
@@ -113,6 +117,7 @@ section .featured-projects {
   transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
+/* Active and selected tab styles */
 .tab-button.active,
 .tab-button[aria-selected="true"] {
   background: var(--wp--preset--color--grape);
@@ -120,8 +125,11 @@ section .featured-projects {
   font-weight: 600;
 }
 
+/* Focus styles for tab buttons (keyboard accessibility) */
+.tab-button:focus,
 .tab-button:focus-visible {
   outline: 0.125rem solid var(--wp--preset--color--soft-blue);
+  outline-offset: 2px;
 }
 
 /* --- Responsive: Tabs remain vertical on mobile --- */
@@ -178,12 +186,6 @@ section .featured-projects {
   }
 }
 
-/* Giving columns space */
-.wp-block-columns {
-  gap: 2.5rem !important;
-  align-items: flex-start;
-}
-
 /* Styling the term list for skills section */
 .nl-term-list {
   list-style: none;
@@ -224,7 +226,9 @@ section .featured-projects {
   text-align: center;
 }
 
-.about-content img:hover {
+/* Add :focus for image accessibility */
+.about-content img:hover,
+.about-content img:focus {
   transform: scale(1.05);
   transition: all 0.3s ease;
   filter: drop-shadow(0px 0px 0.3125rem var(--wp--preset--color--grape));
