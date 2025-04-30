@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ].filter(Boolean);
   if (!containers.length) return;
 
-  const baseEndpoint = WeatherConfig.endpoint; // "/wp-json/weather/v1/current"
+  const baseEndpoint = WeatherConfig.endpoint;
 
   function render(data) {
     const temp = Math.round(data.temp);
@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(() => containers.forEach((c) => (c.textContent = "N/A")));
   }
 
-  // 1) Immediately load your default city:
+  // Load default location (Vancouver, CA) first:
   fetchAndRender("?city=Vancouver,CA");
 
-  // 2) In parallel, try the user’s location (5s timeout):
+  // If geolocation is available, use it to get the user's location:
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
