@@ -167,8 +167,7 @@
 		"blocks": {
 			"core/button": {
 				"color": {
-					"background": "rgba(255, 255, 255, 0.4)",
-					"text": "var(--wp--preset--color--deep-indigo)"
+					"text": "var(--wp--preset--color--light-apricot)"
 				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--hammersmith-one)",
@@ -177,7 +176,7 @@
 			},
 			"core/buttons": {
 				"border": {
-					"radius": "20px"
+					"radius": "10px"
 				}
 			},
 			"core/heading": {
