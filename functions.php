@@ -33,6 +33,11 @@ function nl_enqueue_theme_assets() {
         wp_enqueue_style( 'single-style', get_template_directory_uri() . '/styles/single.css', [], '1.0.0', 'all' );
     }
 
+    // Privacy Policy page
+    if ( is_page( 'privacy-policy' ) ) {
+        wp_enqueue_style( 'privacy-policy-style', get_template_directory_uri() . '/styles/privacy-policy.css', [], '1.0.0', 'all' );
+    }
+
     // 404 page
     if ( is_404() ) {
         wp_enqueue_style( 'custom-404-style', get_template_directory_uri() . '/styles/404.css', [], '1.0', 'all' );
