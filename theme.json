@@ -209,12 +209,6 @@
 						"text": "var(--wp--preset--color--deep-indigo)"
 					}
 				},
-				":hover": {
-					"color": {
-						"background": "var(--wp--preset--color--grape)",
-						"text": "var(--wp--preset--color--light-apricot)"
-					}
-				},
 				"color": {
 					"background": "var(--wp--preset--color--deep-indigo)",
 					"text": "var(--wp--preset--color--light-apricot)"

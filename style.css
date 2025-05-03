@@ -130,18 +130,29 @@ footer a:focus {
 @media (max-width: 48rem) {
   footer {
     margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
   }
 
-  footer .connect-stack,
-  footer .contact-stack {
+  div.wp-block-group .connect-stack,
+  div.wp-block-group .contact-stack,
+  ul.wp-block-social-links {
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin: 0 auto;
   }
 
+  ul.wp-block-social-link li {
+    margin: 0 auto;
+    padding: 0.5rem 0;
+  }
+
   footer .copyright-privacy {
     justify-content: center;
+    text-align: center;
+    align-content: center;
     padding-top: 1rem;
   }
 }

@@ -97,9 +97,10 @@ textarea:focus {
 .project-buttons {
   display: inline-block;
   white-space: nowrap;
+  margin: 0.05rem;
 }
 
-.wp-element-button-github {
+a.wp-element-button-github {
   background-color: transparent;
   color: var(--wp--preset--color--deep-indigo);
   border: 3px solid var(--wp--preset--color--deep-indigo);
@@ -113,7 +114,7 @@ textarea:focus {
   color: white;
 }
 
-.wp-element-button-live {
+a.wp-element-button-live {
   background-color: var(--wp--preset--color--dusty-mauve);
   color: white;
   border: 2px solid var(--wp--preset--color--dusty-mauve);
@@ -122,14 +123,14 @@ textarea:focus {
   transition: all 0.3s ease;
 }
 
-.wp-element-button-live:hover {
+a.wp-element-button-live:hover {
   background-color: var(--wp--preset--color--deep-indigo);
   color: white;
   border: 2px solid var(--wp--preset--color--deep-indigo);
 }
 
 @media (max-width: 94rem) {
-  .project-buttons {
+  div.wp-block-group .project-buttons {
     gap: 2rem;
     padding-top: 1.3rem;
     padding-bottom: 0.5rem;
